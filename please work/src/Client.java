@@ -15,11 +15,9 @@ public class Client
     private DataOutputStream out     = null; 
     private DataInputStream veto = null;
     String line = "";
-    String currentInput;
     String[] inputArrayString;
     String[] BFFServer;
-   
-    ArrayList<String> word = new ArrayList<String>();
+    ArrayList<String[]> serverList = new ArrayList<String[]>();
     // constructor to put ip address and port 
     public Client(String address, int port) 
     { 
@@ -70,8 +68,7 @@ public class Client
         String firstJob = read();
         
         //what servers do we have
-        
-        
+               
         //running the first job with the server that we just found
         inputArrayString = firstJob.split(" ");
         openServer(inputArrayString);
@@ -86,23 +83,11 @@ public class Client
 		}
         //and it begins
         ready();
-         
-        
-        
-        
-         
         while (!line.equals("Over")) 
         { 
-        	
         	schedule();
-        	//main loop	
-
-                 	        	
+        	//main loop	   	        	
         } 
-        
-        
-        
-      
         // close the connection 
         try
         { 
@@ -142,8 +127,7 @@ public class Client
 	public boolean readReady() {
 		try {
 			if(veto.available()!=0) {
-				return true;
-				
+				return true;	
 			}
 			
 		} catch (IOException e) {
@@ -167,26 +151,23 @@ public class Client
  
  	//what servers are on the menu today. Sends that list to big array. 
  	public void servers() {
-    	word.clear();
+    	serverList.clear();
     	String resc = "RESC All ";
-    	word.add("");
-    	try{    		
-    		
-    		
+    	//serverList.add("");
+    	try{    			
     		out.write(resc.getBytes());
     	}
     	 catch(IOException i) 
         { 
             System.out.println(i); 
         }   
-    	while(!word.get(0).equals(".")) {
+    	while(!serverList.get(0)[0].equals(".")) {
     		
     		ok();
     		while(!readReady()) {
     			
     		}
-			word.add(0, read());	
-			
+			serverList.add(0, read().split(" "));	
     	}
     	
     //	largeServer = word.get(1).split(" ");
@@ -196,10 +177,12 @@ public class Client
     }
  	
  	public void openServer(String[] input) {
- 		word.clear();
+ 		serverList.clear();
  		String resc = "RESC Avail "+input[4]+" "+input[5]+" "+input[6];
-    	word.add("");
-    	read();
+ 		String[] buffer = {" "};
+    	serverList.add(buffer);
+    	   		
+
     	try{    		
     		
     		
@@ -210,19 +193,32 @@ public class Client
             System.out.println(i); 
         }   
     	
-    	while(!word.get(0).equals(".")) {
+    	
+    	while(!readReady()) {};
+    	read();	
+    	
+    	while(!serverList.get(0)[0].equals(".")) {
     		
     		ok();
-    		while(!readReady()) {
-    			
-    		}
+    		while(!readReady()) {};
+    		serverList.add(0,read().split(" "));
+    		serverList.get(0)[0].replace("DATA","");
     		
-			word.add(0,read());				
-			
+    		
+    		System.out.println(serverList.get(0)[0]);
     	}
+    	serverList.remove(serverList.size()-1);
+    	serverList.remove(serverList.size()-1);
+
+    	serverList.remove(0);
+    	
+    
+    	
     	
     	 assignServer(input);
  	}
+ 	
+ 	
     // asking the server for another job 
     public void ready() {
     	
@@ -260,18 +256,19 @@ public class Client
     }
  
    public void assignServer(String[] v) {
-	   
-	   for(int i =1;i<=word.size()-1;i++) {
-		   String[] ser = word.get(i).split(" ");
-		   System.out.println(word.get(i));
-		   if(Integer.parseInt(ser[4])>=Integer.parseInt(v[4])) {
-			   
-			   BFFServer = ser;
-			   return;
+	   String[] max = serverList.get(0);
+	   for(int i =1;i<=serverList.size()-1;i++) {
+		   String[] ser = serverList.get(i);
+		   //System.out.println(serverList.get(i)[0]);
+		   if(!ser[0].equals(".") || !ser[0].equals(" ")) {
+		   if(Integer.parseInt(ser[4])>= Integer.parseInt(max[4])) {
+			   max = ser;
 		   }
-		   
-		   
+		   }
 	   }
+	   
+	   BFFServer = max;
+	  
    }
    
     //send jobs and other things
