@@ -1,54 +1,54 @@
 
-// A Java program for a Client 
+// A Java program for a Client
 import java.net.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
-import java.io.*; 
+import java.io.*;
 
-public class Client 
-{ 
-    // initialize socket and input output streams 
-    private Socket socket            = null; 
-    private DataInputStream  input   = null; 
-    private DataOutputStream out     = null; 
+public class Client
+{
+    // initialize socket and input output streams
+    private Socket socket            = null;
+    private DataInputStream  input   = null;
+    private DataOutputStream out     = null;
     private DataInputStream veto = null;
     String line = "";
     String[] inputArrayString;
     String[] BFFServer;
     ArrayList<String[]> serverList = new ArrayList<String[]>();
     String sortType;
-    // constructor to put ip address and port 
-    public Client(String address, int port,String Type) 
-    { 
-        // establish a connection 
+    // constructor to put ip address and port
+    public Client(String address, int port,String Type)
+    {
+        // establish a connection
         try
-        { 
+        {
         	sortType=Type;
-            socket = new Socket(address, port); 
-            System.out.println("Connected"); 
-  
-            // takes input from terminal 
-            input = new DataInputStream(System.in); 
-  
-            // sends output to the socket 
-            out = new DataOutputStream(socket.getOutputStream()); 
-            
+            socket = new Socket(address, port);
+            System.out.println("Connected");
+
+            // takes input from terminal
+            input = new DataInputStream(System.in);
+
+            // sends output to the socket
+            out = new DataOutputStream(socket.getOutputStream());
+
             veto = new DataInputStream(socket.getInputStream());
-            
-            
-        } 
-        catch(UnknownHostException u) 
-        { 
-            System.out.println(u); 
-        } 
-        catch(IOException i) 
-        { 
-            System.out.println(i); 
-        } 
-  
-        // string to read message from input 
-         
+
+
+        }
+        catch(UnknownHostException u)
+        {
+            System.out.println(u);
+        }
+        catch(IOException i)
+        {
+            System.out.println(i);
+        }
+
+        // string to read message from input
+
         //hi server
         hello();
         // making sure the client waits for the server's reply, without getting stuck in an infinite loop
@@ -68,13 +68,13 @@ public class Client
         }
     	//holds the name of the first task for use once we know the server to use
         String firstJob = read();
-        
+
         //what servers do we have
-               
+
         //running the first job with the server that we just found
         inputArrayString = firstJob.split(" ");
         openServer(inputArrayString);
-        
+
         String first = "SCHD " + inputArrayString[2]+" " + BFFServer[0] +" "+BFFServer[1] + "\n";
         try {
 			out.write(first.getBytes());
@@ -84,38 +84,38 @@ public class Client
 		}
         //and it begins
         ready();
-        while (!line.equals("Over")) 
-        { 
+        while (!line.equals("Over"))
+        {
         	schedule();
-        	//main loop	   	        	
-        } 
-        // close the connection 
+        	//main loop
+        }
+        // close the connection
         try
-        { 
-            input.close(); 
-            out.close(); 
-            socket.close(); 
-        } 
-        catch(IOException i) 
-        { 
-            System.out.println(i); 
-        } 
+        {
+            input.close();
+            out.close();
+            socket.close();
+        }
+        catch(IOException i)
+        {
+            System.out.println(i);
+        }
         finally {
-        	
+
         }
     }
- 
+
    //our read function returns whatever there is to read, there should always be something, but we still check
     public String read() {
     	String holding = "";
 		try {
 		//our little check
 			if(veto.available()!=0) {
-      	
-				for(int i = 0;i<veto.available();) {	
-      		          		
+
+				for(int i = 0;i<veto.available();) {
+
 					holding=holding+ (char)veto.read();
-				} 	
+				}
 			}
       	}
       	catch(IOException i){
@@ -129,9 +129,9 @@ public class Client
 	public boolean readReady() {
 		try {
 			if(veto.available()!=0) {
-				return true;	
+				return true;
 			}
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -139,10 +139,10 @@ public class Client
 		return false;
 	}
 
-	//ok, tell the server "ok", ok, sweet. 
+	//ok, tell the server "ok", ok, sweet.
  	public void ok () {
 	 String ok = "OK\n";
-	 
+
 	try {
 		out.write(ok.getBytes());
 	} catch (IOException e) {
@@ -150,55 +150,55 @@ public class Client
 		e.printStackTrace();
 	}
  }
- 
- 	//what servers are on the menu today. Sends that list to big array. 
+
+ 	//what servers are on the menu today. Sends that list to big array.
  	public void servers() {
     	serverList.clear();
     	String resc = "RESC All\n";
     	//serverList.add("");
-    	try{    			
+    	try{
     		out.write(resc.getBytes());
     	}
-    	 catch(IOException i) 
-        { 
-            System.out.println(i); 
-        }   
+    	 catch(IOException i)
+        {
+            System.out.println(i);
+        }
     	while(!serverList.get(0)[0].equals(".")) {
-    		
+
     		ok();
     		while(!readReady()) {
-    			
+
     		}
-			serverList.add(0, read().split(" "));	
+			serverList.add(0, read().split(" "));
     	}
-    	
+
     //	largeServer = word.get(1).split(" ");
     //	System.out.println(largeServer[0]);
-    	 
-    	
+
+
     }
- 	
+
  	public void openServer(String[] input) {
  		serverList.clear();
  		String resc = "RESC Avail "+input[4]+" "+input[5]+" "+input[6]+ "\n";
  		String[] buffer = {" "};
     	serverList.add(buffer);
-    	   		
-    	try{    		   		
+
+    	try{
    		out.write(resc.getBytes());
     	}
-    	 catch(IOException i) 
-        { 
-            System.out.println(i); 
-        }     	
+    	 catch(IOException i)
+        {
+            System.out.println(i);
+        }
     	while(!readReady()) {};
-    	read();	
-    	
-    	while(!serverList.get(0)[0].equals(".")) {   		
+    	read();
+
+    	while(!serverList.get(0)[0].equals(".")) {
     		ok();
     		while(!readReady()) {};
     		serverList.add(0,read().split(" "));
-    		serverList.get(0)[0].replace("DATA","");   		    		
+    		serverList.get(0)[0].replace("DATA","");
     		//System.out.println(serverList.get(0)[0]);
     	}
     	serverList.remove(serverList.size()-1);
@@ -206,83 +206,53 @@ public class Client
     	serverList.remove(0);
     	 assignServer();
  	}
- 		
-    // asking the server for another job 
-    public void ready() {	
+
+    // asking the server for another job
+    public void ready() {
     	String ready = "REDY\n";
-    	try{    		   		
-    		out.write(ready.getBytes());    		
+    	try{
+    		out.write(ready.getBytes());
     	}
-    	 catch(IOException i) 
-        { 
-            System.out.println(i); 
-        }   
+    	 catch(IOException i)
+        {
+            System.out.println(i);
+        }
     }
-    
+
     //greeting the server
     public void hello() {
     	String helo = "HELO\n";
     	String auth = "AUTH xxx\n";
-    	
-    	try{    		
+
+    	try{
     		out.write(helo.getBytes());
     		TimeUnit.MILLISECONDS.sleep(5);
-    		out.write(auth.getBytes());    		
+    		out.write(auth.getBytes());
     	}
-    	 catch(IOException i) 
-        { 
-            System.out.println(i); 
+    	 catch(IOException i)
+        {
+            System.out.println(i);
         } catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}   
+		}
     }
- 
+ // Since the RESC avail returns all the avaliable servers and we store all of these in the order they are sent
+ // we just need to pick the first one added to the arrayList to get the first fit. This method would be quicker
+ //if we didn't have to go through all of the RESC avail servers and could just use the first available one
   public void firstFit() {
 	  BFFServer = serverList.get(serverList.size()-1);
   }
-    
-    
-   public void bestFit() {
-	   String[] min = serverList.get(0);
-	   for(int i =1;i<=serverList.size()-1;i++) {
-		   String[] ser = serverList.get(i);
-		   //System.out.println(serverList.get(i)[0]);
-		   if(!ser[0].equals(".") || !ser[0].equals(" ")) {
-			   if(Integer.parseInt(ser[4])<= Integer.parseInt(min[4])) {
-				   min = ser;
-			   }
-		   }
-	   } 
-	   BFFServer = min;	  
-   }
-   
-   public void worstFit() {
-	   String[] max = serverList.get(0);
-	   for(int i =1;i<=serverList.size()-1;i++) {
-		   String[] ser = serverList.get(i);
-		   //System.out.println(serverList.get(i)[0]);
-		   if(!ser[0].equals(".") || !ser[0].equals(" ")) {
-			   if(Integer.parseInt(ser[4])>= Integer.parseInt(max[4])) {
-				   max = ser;
-		   		}
-		   }
-	   }
-	   BFFServer = max;  
-   }
-   
+
+
    public void assignServer() {
-	   if (sortType.equals("bf")) {
-		   bestFit();
-	   }else if (sortType.equals("wf")) {
-		   worstFit();
-	   }else if (sortType.equals("ff")) {
+
 		   firstFit();
-	   }
+
    }
-   
+
     //send jobs and other things
-    public void schedule() {  
+    public void schedule() {
     	//this for loop has a catch that tries to stop the main loop continuing forever in the case that the server is doing nothing
     	//our own little timeout and brakeBFFServer
     	for(int i=0;i<1000;i++) {
@@ -293,7 +263,7 @@ public class Client
         		line="over";
         	}
         }
-    	
+
     	inputArrayString = read().split(" ");
     	String job = inputArrayString[0];
     	String schd = "";
@@ -305,36 +275,27 @@ public class Client
         	out.write(quit.getBytes());
         	return;
         }
-    	if(job.equals("JOBN")) {	
+    	if(job.equals("JOBN")) {
     		openServer(inputArrayString);
-    		
+
     		schd = "SCHD " + inputArrayString[2]+" " + BFFServer[0] +" "+ BFFServer[1] + "\n";
-    	}    	    	    	
+    	}
     	if(!schd.equals("")) {
-    		out.write(schd.getBytes());    		
+    		out.write(schd.getBytes());
     	}
     	//otherwise ask for something else
     	else {
     		ready();
-    	}   		
     	}
-    	 catch(IOException i) 
-        { 
-            System.out.println(i); 
-        }     	    	
+    	}
+    	 catch(IOException i)
+        {
+            System.out.println(i);
+        }
     }
-    public static void main(String args[]) 
-    { 	
-    	if(args.length==2)  {
-    		if(args[0].equals("-a")) {
-    			if(args[1].equals("ff") || args[1].equals("wf") ||args[1].equals("bf") ) {
-    	System.out.println(args[0]);
+    public static void main(String args[])
+    {
         Client client = new Client("127.0.0.1", 8096,args[1]);
-    			}
-    		}
-    	}else {
-    		System.out.println("Please use -a (ff, wf, bf)");
-    		return;
-    	}
-    } 
-} 
+
+    }
+}
