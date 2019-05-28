@@ -15,6 +15,7 @@ public class Client
     String line = "";
     String[] inputArrayString;
     String[] BFFServer;
+    ArrayList<String[]> ogServers = new ArrayList<String[]>();
     ArrayList<String[]> allServers = new ArrayList<String[]>();
     ArrayList<String[]> serverList = new ArrayList<String[]>();
     String sortType;
@@ -151,6 +152,38 @@ public class Client
             e.printStackTrace();
         }
     }
+    
+    public void ogservers() {
+        ogServers.clear();
+        String resc = "RESC All\n";
+        String[] buffer = {" "};
+        ogServers.add(buffer);
+        try{
+            out.write(resc.getBytes());
+        }
+        catch(IOException i)
+        {
+            System.out.println(i);
+        }
+        read();
+        while(!ogServers.get(0)[0].equals(".")) {
+            ok();
+            while(!readReady()) {
+
+            }
+
+            ogServers.add(0, read().split(" "));
+            String temp = ogServers.get(0)[0].replace("DATA","");
+            ogServers.get(0)[0] = temp;
+        }
+
+        ogServers.remove(ogServers.size()-1);
+        ogServers.remove(0);
+
+        for(int i = 0; i < ogServers.size(); i++){
+            System.out.println(ogServers.get(i)[0] + " " + ogServers.get(i)[1] + " " + ogServers.get(i)[4]);
+        }
+    }
 
     //what servers are on the menu today. Sends that list to big array.
     public void servers() {
@@ -172,10 +205,11 @@ public class Client
 
             }
             allServers.add(0, read().split(" "));
-            allServers.get(0)[0].replace("DATA","");
+            String temp = allServers.get(0)[0].replace("DATA","");
+            allServers.get(0)[0] = temp;
 
-            allServers.remove(serverList.size()-1);
-            allServers.remove(serverList.size()-1);
+            allServers.remove(allServers.size()-1);
+            allServers.remove(allServers.size()-1);
             allServers.remove(0);
         }
 
@@ -184,7 +218,7 @@ public class Client
 
 
     }
-
+    
     public void openServer(String[] input) {
         serverList.clear();
         String resc = "RESC Avail "+input[4]+" "+input[5]+" "+input[6]+ "\n";
@@ -264,7 +298,7 @@ public class Client
         BFFServer = min;
     }
 
-    public void worstFit(ArrayList<String[]> serverList) {
+   /* public void worstFit(ArrayList<String[]> serverList) {
         String[] max = serverList.get(0);
         for(int i =1;i<=serverList.size()-1;i++) {
             String[] ser = serverList.get(i);
@@ -276,6 +310,33 @@ public class Client
             }
         }
         BFFServer = max;
+    } */
+    
+    public void bestFit(ArrayList<String[]> sList) {
+
+        String[] min = ogServers.get(0);
+        for(int i =0;i<=sList.size()-1;i++) {
+            String[] ser = sList.get(i);
+            String[] job = inputArrayString;
+            System.out.println(ser[0] + " " + ser[1] + " " + ser[2] + " " +ser[3] + " " + ser[4] + " " + ser[5] +" " + job[2]);
+            for(int j = 0; j < ogServers.size(); j++){
+                String[] og = ogServers.get(j);
+                //System.out.println("Min info: " + min[0] + " " + min[1] + " " + min[4] + " Job Cores: " + job[4] + " OG Cores: " + og[4]);
+                //System.out.println(serverList.get(i)[0]);
+                if(!ser[0].equals(".") || !ser[0].equals(" ")) {
+                    if(og[0].equals(ser[0]) && og[1].equals(ser[1])) {
+                        if(Integer.parseInt(ser[2]) != 3 && Integer.parseInt(ser[2]) != 4){
+                            if(Integer.parseInt(job[4]) >= Integer.parseInt(og[4])){
+                                if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4]) && Integer.parseInt(ser[4]) != 0){
+                                    min = ser;
+                                }
+                            }
+                        }
+                    }
+                }
+                BFFServer = min;
+            }
+        }
     }
 
     public ArrayList<String[]> sortList(ArrayList<String[]> listToSort) {
@@ -314,7 +375,8 @@ public class Client
             servers();
             passedList = allServers;
         }
-        sortList(passedList);
+        
+        passedList = sortList(passedList);
 
         if (sortType.equals("bf")) {
             bestFit(passedList);
