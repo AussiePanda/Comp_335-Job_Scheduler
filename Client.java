@@ -72,6 +72,8 @@ public class Client
         String firstJob = read();
 
         //what servers do we have
+        ogservers();
+        ogServers = sortList(ogServers);
 
         //running the first job with the server that we just found
         inputArrayString = firstJob.split(" ");
@@ -152,7 +154,7 @@ public class Client
             e.printStackTrace();
         }
     }
-    
+
     public void ogservers() {
         ogServers.clear();
         String resc = "RESC All\n";
@@ -218,7 +220,7 @@ public class Client
 
 
     }
-    
+
     public void openServer(String[] input) {
         serverList.clear();
         String resc = "RESC Avail "+input[4]+" "+input[5]+" "+input[6]+ "\n";
@@ -239,7 +241,8 @@ public class Client
             ok();
             while(!readReady()) {};
             serverList.add(0,read().split(" "));
-            serverList.get(0)[0].replace("DATA","");
+            String temp = serverList.get(0)[0].replace("DATA","");
+            serverList.get(0)[0] = temp;
             //System.out.println(serverList.get(0)[0]);
         }
         serverList.remove(serverList.size()-1);
@@ -298,7 +301,7 @@ public class Client
         BFFServer = min;
     }
 
-   /* public void worstFit(ArrayList<String[]> serverList) {
+    public void worstFit(ArrayList<String[]> serverList) {
         String[] max = serverList.get(0);
         for(int i =1;i<=serverList.size()-1;i++) {
             String[] ser = serverList.get(i);
@@ -310,15 +313,14 @@ public class Client
             }
         }
         BFFServer = max;
-    } */
-    
-    public void bestFit(ArrayList<String[]> sList) {
+    }
 
+/*    public void bestFit(ArrayList<String[]> sList) {
         String[] min = ogServers.get(0);
         for(int i =0;i<=sList.size()-1;i++) {
             String[] ser = sList.get(i);
             String[] job = inputArrayString;
-            System.out.println(ser[0] + " " + ser[1] + " " + ser[2] + " " +ser[3] + " " + ser[4] + " " + ser[5] +" " + job[2]);
+            //System.out.println(ser[0] + " " + ser[1] + " " + ser[2] + " " +ser[3] + " " + ser[4] + " " + ser[5] +" " + job[2]);
             for(int j = 0; j < ogServers.size(); j++){
                 String[] og = ogServers.get(j);
                 //System.out.println("Min info: " + min[0] + " " + min[1] + " " + min[4] + " Job Cores: " + job[4] + " OG Cores: " + og[4]);
@@ -337,7 +339,7 @@ public class Client
                 BFFServer = min;
             }
         }
-    }
+    }*/
 
     public ArrayList<String[]> sortList(ArrayList<String[]> listToSort) {
         ArrayList < String[] > tempServerList = new ArrayList < String[] > ();
@@ -370,12 +372,12 @@ public class Client
     }
 
     public void assignServer() {
-    ArrayList<String[]> passedList = serverList;
+        ArrayList<String[]> passedList = serverList;
         if(serverList == null){
             servers();
             passedList = allServers;
         }
-        
+
         passedList = sortList(passedList);
 
         if (sortType.equals("bf")) {
