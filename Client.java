@@ -67,8 +67,6 @@ public class Client
             }
         }
 
-        servers();
-
         //holds the name of the first task for use once we know the server to use
         String firstJob = read();
 
