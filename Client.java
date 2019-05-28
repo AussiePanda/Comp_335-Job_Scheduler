@@ -19,6 +19,7 @@ public class Client
     ArrayList<String[]> allServers = new ArrayList<String[]>();
     ArrayList<String[]> serverList = new ArrayList<String[]>();
     String sortType;
+    long time = System.currentTimeMillis();
     // constructor to put ip address and port
     public Client(String address, int port,String Type)
     {
@@ -75,9 +76,9 @@ public class Client
         ogservers();
         ogServers = sortList(ogServers);
 
-        for(int i = 0; i < ogServers.size(); i++){
-            System.out.println(ogServers.get(i)[0] + " " + ogServers.get(i)[1] + " " + ogServers.get(i)[4]);
-        }
+//        for(int i = 0; i < ogServers.size(); i++){
+//            System.out.println(ogServers.get(i)[0] + " " + ogServers.get(i)[1] + " " + ogServers.get(i)[4]);
+//        }
 
         //running the first job with the server that we just found
         inputArrayString = firstJob.split(" ");
@@ -291,25 +292,52 @@ public class Client
         BFFServer = serverList.get(serverList.size()-1);
     }
 
+    int modCount = 0;
+    public void fastFit(){
+        String[] lastServer = ogServers.get(ogServers.size()-1);
+        String lastServerType = lastServer[0];
+        int lastServerCount = 0;
+        for(int i = ogServers.size()-1; i > 0; i--) {
+            if (ogServers.get(i)[0].equals(lastServerType)) {
+                lastServerCount++;
+            }
+        }
+
+
+        for(int j = ogServers.size()-lastServerCount; j < ogServers.size(); j++){
+            if(Integer.parseInt(ogServers.get(j)[1]) == modCount){
+                System.out.println(modCount);
+                modCount++;
+                BFFServer = ogServers.get(j);
+                return;
+            }
+
+            if(modCount == lastServerCount){
+                modCount = 0;
+            }
+        }
+        return;
+        //BFFServer = ogServers.get(ogServers.size()-1);
+    }
+
 
     public void bestFit(ArrayList<String[]> serverList) {
         String[] min = ogServers.get(ogServers.size()-1);
         for(int i = 0;i<=serverList.size()-1;i++) {
             String[] ser = serverList.get(i);
-            String[] job = inputArrayString;
+/*            String[] job = inputArrayString;
             for(int j = 0; j < ogServers.size(); j++) {
                 String[] og = ogServers.get(j);
                 if (!ser[0].equals(".") || !ser[0].equals(" ")) {
                     if (og[0].equals(ser[0]) && og[1].equals(ser[1])) {
-                        if (Integer.parseInt(job[4]) <= Integer.parseInt(og[4])) {
+                        if (Integer.parseInt(job[4]) <= Integer.parseInt(og[4])) {*/
                             if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
-                                BFFServer = ser;
-                                return;
+                                min = ser;
                             }
-                        }
+/*                        }
                     }
                 }
-            }
+            }*/
         }
         BFFServer = min;
     }
@@ -396,10 +424,12 @@ public class Client
 
         if (sortType.equals("bf")) {
             bestFit(passedList);
-        }else if (sortType.equals("wf")) {
+        } else if (sortType.equals("wf")) {
             worstFit(passedList);
-        }else if (sortType.equals("ff")) {
+        } else if (sortType.equals("ff")) {
             firstFit(passedList);
+        } else if(sortType.equals("fastfit")){
+            fastFit();
         }
     }
 
@@ -422,16 +452,25 @@ public class Client
         //assigning and writing jobs
         try{
             if(inputArrayString[0].equals("NONE")){
+                System.out.println(System.currentTimeMillis() - time);
                 String quit = "QUIT\n";
                 line="Over";
                 out.write(quit.getBytes());
                 return;
             }
             if(job.equals("JOBN")) {
-                openServer(inputArrayString);
+                if (sortType.equals("fastfit")) {
+                    fastFit();
+                    schd = "SCHD " + inputArrayString[2] + " " + BFFServer[0] + " " + BFFServer[1] + "\n";
+                } else {
 
-                schd = "SCHD " + inputArrayString[2]+" " + BFFServer[0] +" "+ BFFServer[1] + "\n";
+                    openServer(inputArrayString);
+
+                    schd = "SCHD " + inputArrayString[2] + " " + BFFServer[0] + " " + BFFServer[1] + "\n";
+                }
             }
+
+
             if(!schd.equals("")) {
                 out.write(schd.getBytes());
             }
@@ -449,13 +488,13 @@ public class Client
     {
         if(args.length==2)  {
             if(args[0].equals("-a")) {
-                if(args[1].equals("ff") || args[1].equals("wf") ||args[1].equals("bf") ) {
+                if(args[1].equals("ff") || args[1].equals("wf") || args[1].equals("bf") || args[1].equals("fastfit") ) {
                     System.out.println(args[0]);
                     Client client = new Client("127.0.0.1", 8096,args[1]);
                 }
             }
         }else {
-            System.out.println("Please use -a (ff, wf, bf)");
+            System.out.println("Please use -a (ff, wf, bf, fastfit)");
             return;
         }
     }
