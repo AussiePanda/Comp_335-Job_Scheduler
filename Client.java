@@ -75,6 +75,10 @@ public class Client
         ogservers();
         ogServers = sortList(ogServers);
 
+        for(int i = 0; i < ogServers.size(); i++){
+            System.out.println(ogServers.get(i)[0] + " " + ogServers.get(i)[1] + " " + ogServers.get(i)[4]);
+        }
+
         //running the first job with the server that we just found
         inputArrayString = firstJob.split(" ");
         openServer(inputArrayString);
@@ -181,10 +185,6 @@ public class Client
 
         ogServers.remove(ogServers.size()-1);
         ogServers.remove(0);
-
-        for(int i = 0; i < ogServers.size(); i++){
-            System.out.println(ogServers.get(i)[0] + " " + ogServers.get(i)[1] + " " + ogServers.get(i)[4]);
-        }
     }
 
     //what servers are on the menu today. Sends that list to big array.
@@ -293,31 +293,25 @@ public class Client
 
 
     public void bestFit(ArrayList<String[]> serverList) {
-        String[] min = serverList.get(0);
-        for(int i =1;i<=serverList.size()-1;i++) {
+        String[] min = ogServers.get(ogServers.size()-1);
+        for(int i = 0;i<=serverList.size()-1;i++) {
             String[] ser = serverList.get(i);
-            //System.out.println(serverList.get(i)[0]);
-            if(!ser[0].equals(".") || !ser[0].equals(" ")) {
-                if(Integer.parseInt(ser[4])<= Integer.parseInt(min[4])) {
-                    min = ser;
+            String[] job = inputArrayString;
+            for(int j = 0; j < ogServers.size(); j++) {
+                String[] og = ogServers.get(j);
+                if (!ser[0].equals(".") || !ser[0].equals(" ")) {
+                    if (og[0].equals(ser[0]) && og[1].equals(ser[1])) {
+                        if (Integer.parseInt(job[4]) <= Integer.parseInt(og[4])) {
+                            if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
+                                BFFServer = ser;
+                                return;
+                            }
+                        }
+                    }
                 }
             }
         }
         BFFServer = min;
-    }
-
-    public void worstFit(ArrayList<String[]> serverList) {
-        String[] max = serverList.get(0);
-        for(int i =1;i<=serverList.size()-1;i++) {
-            String[] ser = serverList.get(i);
-            //System.out.println(serverList.get(i)[0]);
-            if(!ser[0].equals(".") || !ser[0].equals(" ")) {
-                if(Integer.parseInt(ser[4])>= Integer.parseInt(max[4])) {
-                    max = ser;
-                }
-            }
-        }
-        BFFServer = max;
     }
 
 /*    public void bestFit(ArrayList<String[]> sList) {
@@ -345,6 +339,21 @@ public class Client
             }
         }
     }*/
+
+
+    public void worstFit(ArrayList<String[]> serverList) {
+        String[] max = serverList.get(0);
+        for(int i =1;i<=serverList.size()-1;i++) {
+            String[] ser = serverList.get(i);
+            //System.out.println(serverList.get(i)[0]);
+            if(!ser[0].equals(".") || !ser[0].equals(" ")) {
+                if(Integer.parseInt(ser[4])>= Integer.parseInt(max[4])) {
+                    max = ser;
+                }
+            }
+        }
+        BFFServer = max;
+    }
 
     public ArrayList<String[]> sortList(ArrayList<String[]> listToSort) {
         ArrayList < String[] > tempServerList = new ArrayList < String[] > ();
