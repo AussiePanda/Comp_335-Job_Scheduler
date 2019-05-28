@@ -200,6 +200,9 @@ public class Client
         {
             System.out.println(i);
         }
+
+        read();
+
         while(!allServers.get(0)[0].equals(".")) {
 
             ok();
@@ -210,11 +213,12 @@ public class Client
             String temp = allServers.get(0)[0].replace("DATA","");
             allServers.get(0)[0] = temp;
 
-            allServers.remove(allServers.size()-1);
-            allServers.remove(allServers.size()-1);
-            allServers.remove(0);
+
         }
 
+        allServers.remove(allServers.size()-1);
+        //allServers.remove(allServers.size()-1);
+        allServers.remove(0);
         //	largeServer = word.get(1).split(" ");
         //	System.out.println(largeServer[0]);
 
@@ -234,6 +238,7 @@ public class Client
         {
             System.out.println(i);
         }
+
         while(!readReady()) {};
         read();
 
@@ -246,7 +251,7 @@ public class Client
             //System.out.println(serverList.get(0)[0]);
         }
         serverList.remove(serverList.size()-1);
-        serverList.remove(serverList.size()-1);
+        //serverList.remove(serverList.size()-1);
         serverList.remove(0);
         assignServer();
     }
@@ -373,7 +378,7 @@ public class Client
 
     public void assignServer() {
         ArrayList<String[]> passedList = serverList;
-        if(serverList == null){
+        if(serverList.size() == 0){
             servers();
             passedList = allServers;
         }
