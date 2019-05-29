@@ -1,4 +1,5 @@
 // A Java program for a Client
+import java.lang.reflect.Array;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -301,7 +302,7 @@ public class Client
         //BFFServer = ogServers.get(ogServers.size()-1);
     }
 
-    /*int startPoint = 0;
+    int startPoint = 0;
     public void fastTraverseBestFit(ArrayList<String[]> serverList){
         String[] min = ogServers.get(ogServers.size()-1);
         String[] job = inputArrayString;
@@ -339,15 +340,19 @@ public class Client
             }
         }
         BFFServer = min;
-    }*/
+    }
 
 
     public void cheapFit(ArrayList<String[]> serverList) {
         String[] min = ogServers.get(ogServers.size()-1);
         for(int i = 0;i<=serverList.size()-1;i++) {
             String[] ser = serverList.get(i);
-            if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
-                min = ser;
+            if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])){
+                if(Integer.parseInt(ser[5]) <= Integer.parseInt(min[5])){
+                    if (Integer.parseInt(ser[6]) <= Integer.parseInt(min[6])){
+                        min = ser;
+                    }
+                }
             }
         }
         BFFServer = min;
@@ -384,6 +389,10 @@ public class Client
     }
 
     public void assignServer() {
+        if(sortType.equals("ftbf")){
+            servers();
+            ArrayList<String[]> passedList = allServers;
+        }
         ArrayList<String[]> passedList = serverList;
         if(serverList.size() == 0){
             servers();
