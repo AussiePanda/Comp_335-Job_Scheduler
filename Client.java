@@ -344,18 +344,36 @@ public class Client
 
 
     public void cheapFit(ArrayList<String[]> serverList) {
-        String[] min = ogServers.get(ogServers.size()-1);
-        for(int i = 0;i<=serverList.size()-1;i++) {
-            String[] ser = serverList.get(i);
-            if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])){
-                if(Integer.parseInt(ser[5]) <= Integer.parseInt(min[5])){
-                    if (Integer.parseInt(ser[6]) <= Integer.parseInt(min[6])){
-                        min = ser;
+        if(serverList.equals(allServers)){
+            String[] min = serverList.get(serverList.size()-1);
+            for(int i = 0; i < serverList.size(); i++){
+                String[] og = ogServers.get(i);
+                String[] ser = serverList.get(i);
+                if(Integer.parseInt(ser[0]) == (Integer.parseInt(og[0])) && Integer.parseInt(ser[1]) == Integer.parseInt(og[1])){
+                    if(Integer.parseInt(ser[2]) == 0 || Integer.parseInt(ser[2]) == 2){
+                        if((Integer.parseInt(ser[4]) == Integer.parseInt(og[4]))){
+                            if(Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
+                                min = ser;
+                                if ((Integer.parseInt(ser[2]) == 0 || Integer.parseInt(ser[2]) == 2)) {
+                                    min = ser;
+                                    BFFServer = min;
+                                    break;
+                                }
+                            }
+                        }
                     }
                 }
             }
+        } else {
+            String[] min = ogServers.get(ogServers.size() - 1);
+            for (int i = 0; i <= serverList.size() - 1; i++) {
+                String[] ser = serverList.get(i);
+                if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
+                    min = ser;
+                }
+            }
+            BFFServer = min;
         }
-        BFFServer = min;
     }
 
     public ArrayList<String[]> sortList(ArrayList<String[]> listToSort) {
@@ -389,12 +407,13 @@ public class Client
     }
 
     public void assignServer() {
-        if(sortType.equals("ftbf")){
-            servers();
-            ArrayList<String[]> passedList = allServers;
-        }
         ArrayList<String[]> passedList = serverList;
         if(serverList.size() == 0){
+            servers();
+            passedList = allServers;
+        }
+
+        if(sortType.equals("ftbf")){
             servers();
             passedList = allServers;
         }
