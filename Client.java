@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.io.*;
 
-public class Client2
+public class Client
 {
    // initialize socket and input output streams
    private Socket socket            = null;
@@ -21,7 +21,7 @@ public class Client2
    String sortType;
    long time = System.currentTimeMillis();
    // constructor to put ip address and port
-   public Client2(String address, int port,String Type)
+   public Client(String address, int port,String Type)
    {
        // establish a connection
        try
@@ -82,7 +82,8 @@ public class Client2
 
        //running the first job with the server that we just found
        inputArrayString = firstJob.split(" ");
-       openServer(inputArrayString);
+       //openServer(inputArrayString);
+       assignServer();
 
        String first = "SCHD " + inputArrayString[2]+" " + BFFServer[0] +" "+BFFServer[1] + "\n";
        try {
@@ -189,7 +190,7 @@ public class Client2
        }
        ogServers.remove(ogServers.size()-1);
        ogServers.remove(0);
-       System.out.println(ogServers.get(5)[7]);
+      
    }
 
    //what servers are on the menu today. Sends that list to big array.
@@ -221,32 +222,22 @@ public class Client2
    }
 
    public void openServer(String[] input) {
-       serverList.clear();
-       String resc = "RESC Avail "+input[4]+" "+input[5]+" "+input[6]+ "\n";
-       String[] buffer = {" "};
-       serverList.add(buffer);
-
-       try{
-           out.write(resc.getBytes());
-       }
-       catch(IOException i)
-       {
-           System.out.println(i);
-       }
-
-       while(!readReady()) {};
-       read();
-
-       while(!serverList.get(0)[0].equals(".")) {
-           ok();
-           while(!readReady()) {};
-           serverList.add(0,read().split(" "));
-           String temp = serverList.get(0)[0].replace("DATA","");
-           serverList.get(0)[0] = temp;
-           //System.out.println(serverList.get(0)[0]);
-       }
-       serverList.remove(serverList.size()-1);
-       serverList.remove(0);
+		/*
+		 * serverList.clear(); String resc =
+		 * "RESC Avail "+input[4]+" "+input[5]+" "+input[6]+ "\n"; String[] buffer =
+		 * {" "}; serverList.add(buffer);
+		 * 
+		 * try{ out.write(resc.getBytes()); } catch(IOException i) {
+		 * System.out.println(i); }
+		 * 
+		 * while(!readReady()) {}; read();
+		 * 
+		 * while(!serverList.get(0)[0].equals(".")) { ok(); while(!readReady()) {};
+		 * serverList.add(0,read().split(" ")); String temp =
+		 * serverList.get(0)[0].replace("DATA",""); serverList.get(0)[0] = temp;
+		 * //System.out.println(serverList.get(0)[0]); }
+		 * serverList.remove(serverList.size()-1); serverList.remove(0);
+		 */
        assignServer();
    }
 
@@ -350,7 +341,7 @@ public class Client2
 
    public void retard() {
        int hold =ogServers.size()-1;
-
+       
        String[] min = ogServers.get(ogServers.size()-1);
        for(int i = 0;i<=ogServers.size();i++) {
            String[] ser = ogServers.get(i);
@@ -358,11 +349,19 @@ public class Client2
                if(Integer.parseInt(ser[4]) <=Integer.parseInt(min[4])) {
                    min=ser;
                    hold=i;
-                   while(i<=ogServers.size()) {
-                       if(min[0].equals(ser[0])) {
-                           if (Integer.parseInt(ser[3]) <= Integer.parseInt(min[3])) {
-                               min = ser;
+                   i++;
+                   while(i<=ogServers.size()-1) {
+                	   ser = ogServers.get(i);
+						/*
+						 * System.out.println(min[0].replaceAll("\\s","").equals(ser[0].replaceAll("\\s"
+						 * ,""))); System.out.println(min[0]); System.out.println(ser[0]);
+						 */
+                       if(min[0].replaceAll("\\s","").equals(ser[0].replaceAll("\\s",""))) {
+                           if (Integer.parseInt(ser[7]) < Integer.parseInt(min[7])) {
+                        	  
+                        	   min = ser;
                                hold = i;
+                               
                            }
                        }
                        i++;
@@ -370,7 +369,10 @@ public class Client2
                }
            }
        }
-       ogServers.get(hold)[3]=Integer.toString(Integer.parseInt(ogServers.get(hold)[3])+1);
+       
+       
+       ogServers.get(hold)[7]=Integer.toString(Integer.parseInt(ogServers.get(hold)[7])+1);
+       
        BFFServer = min;
    }
 
@@ -405,13 +407,12 @@ public class Client2
    }
 
    public void assignServer() {
-       ArrayList<String[]> passedList = serverList;
-       if(serverList.size() == 0){
-           servers();
-           passedList = allServers;
-       }
-
-       passedList = sortList(passedList);
+		/*
+		 * ArrayList<String[]> passedList = serverList; if(serverList.size() == 0){
+		 * servers(); passedList = allServers; }
+		 * 
+		 * passedList = sortList(passedList);
+		 */
 
        if (sortType.equals("cf")) {
            retard();
@@ -449,6 +450,7 @@ public class Client2
                if (sortType.equals("fastfit")) {
                    fastFit();
                    schd = "SCHD " + inputArrayString[2] + " " + BFFServer[0] + " " + BFFServer[1] + "\n";
+                   System.out.println("beef");
                } else {
                    openServer(inputArrayString);
                    schd = "SCHD " + inputArrayString[2] + " " + BFFServer[0] + " " + BFFServer[1] + "\n";
@@ -470,16 +472,18 @@ public class Client2
    }
    public static void main(String args[])
    {
-       if(args.length==2)  {
-           if(args[0].equals("-a")) {
-               if(args[1].equals("cf") || args[1].equals("fastfit") || args[1].equals("ftbf")) {
-                   System.out.println(args[0]);
-                   Client2 client = new Client2("127.0.0.1", 8096,args[1]);
-               }
+		/*
+		 * if(args.length==2) { if(args[0].equals("-a")) { if(args[1].equals("cf") ||
+		 * args[1].equals("fastfit") || args[1].equals("ftbf")) {
+		 * System.out.println(args[0]);
+		 */
+                  // Client client = new Client("127.0.0.1", 8096,args[1]);
+	   Client client = new Client("127.0.0.1", 8096,"cf");
+/*               }
            }
        }else {
            System.out.println("Please use -a (cf, ftbf or fastfit)");
            return;
-       }
+       }*/
    }
 }
