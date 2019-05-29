@@ -178,12 +178,10 @@ public class Client
             while(!readReady()) {
 
             }
-
             ogServers.add(0, read().split(" "));
             String temp = ogServers.get(0)[0].replace("DATA","");
             ogServers.get(0)[0] = temp;
         }
-
         ogServers.remove(ogServers.size()-1);
         ogServers.remove(0);
     }
@@ -205,25 +203,15 @@ public class Client
         read();
 
         while(!allServers.get(0)[0].equals(".")) {
-
             ok();
             while(!readReady()) {
-
             }
             allServers.add(0, read().split(" "));
             String temp = allServers.get(0)[0].replace("DATA","");
             allServers.get(0)[0] = temp;
-
-
         }
-
         allServers.remove(allServers.size()-1);
-        //allServers.remove(allServers.size()-1);
         allServers.remove(0);
-        //	largeServer = word.get(1).split(" ");
-        //	System.out.println(largeServer[0]);
-
-
     }
 
     public void openServer(String[] input) {
@@ -252,7 +240,6 @@ public class Client
             //System.out.println(serverList.get(0)[0]);
         }
         serverList.remove(serverList.size()-1);
-        //serverList.remove(serverList.size()-1);
         serverList.remove(0);
         assignServer();
     }
@@ -288,21 +275,15 @@ public class Client
         }
     }
 
-    public void firstFit(ArrayList<String[]> serverList) {
-        BFFServer = serverList.get(serverList.size()-1);
-    }
-
     int modCount = 0;
     public void fastFit(){
-        String[] lastServer = ogServers.get(ogServers.size()-1);
-        String lastServerType = lastServer[0];
+        String lastServerType = ogServers.get(ogServers.size()-1)[0];
         int lastServerCount = 0;
         for(int i = ogServers.size()-1; i > 0; i--) {
             if (ogServers.get(i)[0].equals(lastServerType)) {
                 lastServerCount++;
             }
         }
-
 
         for(int j = ogServers.size()-lastServerCount; j < ogServers.size(); j++){
             if(Integer.parseInt(ogServers.get(j)[1]) == modCount){
@@ -320,67 +301,56 @@ public class Client
         //BFFServer = ogServers.get(ogServers.size()-1);
     }
 
-
-    public void bestFit(ArrayList<String[]> serverList) {
+    /*int startPoint = 0;
+    public void fastTraverseBestFit(ArrayList<String[]> serverList){
         String[] min = ogServers.get(ogServers.size()-1);
-        for(int i = 0;i<=serverList.size()-1;i++) {
-            String[] ser = serverList.get(i);
-/*            String[] job = inputArrayString;
-            for(int j = 0; j < ogServers.size(); j++) {
-                String[] og = ogServers.get(j);
-                if (!ser[0].equals(".") || !ser[0].equals(" ")) {
-                    if (og[0].equals(ser[0]) && og[1].equals(ser[1])) {
-                        if (Integer.parseInt(job[4]) <= Integer.parseInt(og[4])) {*/
-                            if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
-                                min = ser;
-                            }
-/*                        }
-                    }
+        String[] job = inputArrayString;
+        if(startPoint == 0){
+            for(int i = 0; i < serverList.size(); i++) {
+                String[] ser = serverList.get(i);
+                if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
+                    min = ser;
+                    startPoint = i;
                 }
-            }*/
-        }
-        BFFServer = min;
-    }
-
-/*    public void bestFit(ArrayList<String[]> sList) {
-        String[] min = ogServers.get(0);
-        for(int i =0;i<=sList.size()-1;i++) {
-            String[] ser = sList.get(i);
-            String[] job = inputArrayString;
-            //System.out.println(ser[0] + " " + ser[1] + " " + ser[2] + " " +ser[3] + " " + ser[4] + " " + ser[5] +" " + job[2]);
-            for(int j = 0; j < ogServers.size(); j++){
-                String[] og = ogServers.get(j);
-                //System.out.println("Min info: " + min[0] + " " + min[1] + " " + min[4] + " Job Cores: " + job[4] + " OG Cores: " + og[4]);
-                //System.out.println(serverList.get(i)[0]);
-                if(!ser[0].equals(".") || !ser[0].equals(" ")) {
-                    if(og[0].equals(ser[0]) && og[1].equals(ser[1])) {
+            }
+        } else {
+            if(startPoint + 1 != serverList.size()){
+                if(Integer.parseInt(job[4]) >= Integer.parseInt(serverList.get(startPoint)[4])){
+                    for(int i = startPoint; i < serverList.size(); i++){
+                        String[] ser = serverList.get(i+1);
                         if(Integer.parseInt(ser[2]) != 3 && Integer.parseInt(ser[2]) != 4){
-                            if(Integer.parseInt(job[4]) >= Integer.parseInt(og[4])){
-                                if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4]) && Integer.parseInt(ser[4]) != 0){
-                                    min = ser;
-                                }
+                            if(Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
+                                min = ser;
+                                startPoint = i;
+                            }
+                        }
+                    }
+                } else {
+                    if(Integer.parseInt(job[4]) <= Integer.parseInt(serverList.get(startPoint)[4])){
+                        for(int i = startPoint; i < serverList.size(); i++){
+                            String[] ser = serverList.get(i+1);
+                            if(Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])){
+                                min = ser;
+                                startPoint = i;
                             }
                         }
                     }
                 }
-                BFFServer = min;
             }
         }
+        BFFServer = min;
     }*/
 
 
-    public void worstFit(ArrayList<String[]> serverList) {
-        String[] max = serverList.get(0);
-        for(int i =1;i<=serverList.size()-1;i++) {
+    public void cheapFit(ArrayList<String[]> serverList) {
+        String[] min = ogServers.get(ogServers.size()-1);
+        for(int i = 0;i<=serverList.size()-1;i++) {
             String[] ser = serverList.get(i);
-            //System.out.println(serverList.get(i)[0]);
-            if(!ser[0].equals(".") || !ser[0].equals(" ")) {
-                if(Integer.parseInt(ser[4])>= Integer.parseInt(max[4])) {
-                    max = ser;
-                }
+            if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
+                min = ser;
             }
         }
-        BFFServer = max;
+        BFFServer = min;
     }
 
     public ArrayList<String[]> sortList(ArrayList<String[]> listToSort) {
@@ -422,14 +392,8 @@ public class Client
 
         passedList = sortList(passedList);
 
-        if (sortType.equals("bf")) {
-            bestFit(passedList);
-        } else if (sortType.equals("wf")) {
-            worstFit(passedList);
-        } else if (sortType.equals("ff")) {
-            firstFit(passedList);
-        } else if(sortType.equals("fastfit")){
-            fastFit();
+        if (sortType.equals("cf")) {
+            cheapFit(passedList);
         }
     }
 
@@ -458,18 +422,17 @@ public class Client
                 out.write(quit.getBytes());
                 return;
             }
+
             if(job.equals("JOBN")) {
+
                 if (sortType.equals("fastfit")) {
                     fastFit();
                     schd = "SCHD " + inputArrayString[2] + " " + BFFServer[0] + " " + BFFServer[1] + "\n";
                 } else {
-
                     openServer(inputArrayString);
-
                     schd = "SCHD " + inputArrayString[2] + " " + BFFServer[0] + " " + BFFServer[1] + "\n";
                 }
             }
-
 
             if(!schd.equals("")) {
                 out.write(schd.getBytes());
@@ -488,13 +451,13 @@ public class Client
     {
         if(args.length==2)  {
             if(args[0].equals("-a")) {
-                if(args[1].equals("ff") || args[1].equals("wf") || args[1].equals("bf") || args[1].equals("fastfit") ) {
+                if(args[1].equals("cf") || args[1].equals("fastfit") || args[1].equals("ftbf")) {
                     System.out.println(args[0]);
                     Client client = new Client("127.0.0.1", 8096,args[1]);
                 }
             }
         }else {
-            System.out.println("Please use -a (ff, wf, bf, fastfit)");
+            System.out.println("Please use -a (cf, ftbf or fastfit)");
             return;
         }
     }
