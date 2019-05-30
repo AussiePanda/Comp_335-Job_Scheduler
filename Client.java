@@ -6,12 +6,11 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.io.*;
 
-public class Client
-{
+public class Client {
     // initialize socket and input output streams
-    private Socket socket            = null;
-    private DataInputStream  input   = null;
-    private DataOutputStream out     = null;
+    private Socket socket = null;
+    private DataInputStream input = null;
+    private DataOutputStream out = null;
     private DataInputStream veto = null;
     String line = "";
     String[] inputArrayString;
@@ -21,13 +20,12 @@ public class Client
     ArrayList<String[]> serverList = new ArrayList<String[]>();
     String sortType;
     long time = System.currentTimeMillis();
+
     // constructor to put ip address and port
-    public Client(String address, int port,String Type)
-    {
+    public Client(String address, int port, String Type) {
         // establish a connection
-        try
-        {
-            sortType=Type;
+        try {
+            sortType = Type;
             socket = new Socket(address, port);
             System.out.println("Connected");
 
@@ -40,13 +38,9 @@ public class Client
             veto = new DataInputStream(socket.getInputStream());
 
 
-        }
-        catch(UnknownHostException u)
-        {
+        } catch (UnknownHostException u) {
             System.out.println(u);
-        }
-        catch(IOException i)
-        {
+        } catch (IOException i) {
             System.out.println(i);
         }
 
@@ -55,18 +49,18 @@ public class Client
         //hi server
         hello();
         // making sure the client waits for the server's reply, without getting stuck in an infinite loop
-        for(int i=0;i<1000;i++) {
-            if(readReady()) {
-                i=1000;
+        for (int i = 0; i < 1000; i++) {
+            if (readReady()) {
+                i = 1000;
             }
         }
         //reads the first 2 responses okok
         read();
         //sends the first ready request
         ready();
-        for(int i=0;i<1000;i++) {
-            if(readReady()) {
-                i=1000;
+        for (int i = 0; i < 1000; i++) {
+            if (readReady()) {
+                i = 1000;
             }
         }
 
@@ -85,7 +79,7 @@ public class Client
         inputArrayString = firstJob.split(" ");
         openServer(inputArrayString);
 
-        String first = "SCHD " + inputArrayString[2]+" " + BFFServer[0] +" "+BFFServer[1] + "\n";
+        String first = "SCHD " + inputArrayString[2] + " " + BFFServer[0] + " " + BFFServer[1] + "\n";
         try {
             out.write(first.getBytes());
         } catch (IOException e) {
@@ -94,23 +88,18 @@ public class Client
         }
         //and it begins
         ready();
-        while (!line.equals("Over"))
-        {
+        while (!line.equals("Over")) {
             schedule();
             //main loop
         }
         // close the connection
-        try
-        {
+        try {
             input.close();
             out.close();
             socket.close();
-        }
-        catch(IOException i)
-        {
+        } catch (IOException i) {
             System.out.println(i);
-        }
-        finally {
+        } finally {
 
         }
     }
@@ -120,25 +109,25 @@ public class Client
         String holding = "";
         try {
             //our little check
-            if(veto.available()!=0) {
+            if (veto.available() != 0) {
 
-                for(int i = 0;i<veto.available();) {
+                for (int i = 0; i < veto.available(); ) {
 
-                    holding=holding+ (char)veto.read();
+                    holding = holding + (char) veto.read();
                 }
             }
-        }
-        catch(IOException i){
+        } catch (IOException i) {
             System.out.println(i);
         }
         holding.trim();
         return holding.trim();
     }
+
     //runs the same check that is in the read function, is used as a brake for the whole program
     //so that we are not speeding along (at the speed of light) faster than the server
     public boolean readReady() {
         try {
-            if(veto.available()!=0) {
+            if (veto.available() != 0) {
                 return true;
             }
 
@@ -150,7 +139,7 @@ public class Client
     }
 
     //ok, tell the server "ok", ok, sweet.
-    public void ok () {
+    public void ok() {
         String ok = "OK\n";
 
         try {
@@ -166,24 +155,22 @@ public class Client
         String resc = "RESC All\n";
         String[] buffer = {" "};
         ogServers.add(buffer);
-        try{
+        try {
             out.write(resc.getBytes());
-        }
-        catch(IOException i)
-        {
+        } catch (IOException i) {
             System.out.println(i);
         }
         read();
-        while(!ogServers.get(0)[0].equals(".")) {
+        while (!ogServers.get(0)[0].equals(".")) {
             ok();
-            while(!readReady()) {
+            while (!readReady()) {
 
             }
             ogServers.add(0, read().split(" "));
-            String temp = ogServers.get(0)[0].replace("DATA","");
+            String temp = ogServers.get(0)[0].replace("DATA", "");
             ogServers.get(0)[0] = temp;
         }
-        ogServers.remove(ogServers.size()-1);
+        ogServers.remove(ogServers.size() - 1);
         ogServers.remove(0);
     }
 
@@ -193,54 +180,54 @@ public class Client
         String resc = "RESC All\n";
         String[] buffer = {" "};
         allServers.add(buffer);
-        try{
+        try {
             out.write(resc.getBytes());
-        }
-        catch(IOException i)
-        {
+        } catch (IOException i) {
             System.out.println(i);
         }
 
         read();
 
-        while(!allServers.get(0)[0].equals(".")) {
+        while (!allServers.get(0)[0].equals(".")) {
             ok();
-            while(!readReady()) {
+            while (!readReady()) {
             }
             allServers.add(0, read().split(" "));
-            String temp = allServers.get(0)[0].replace("DATA","");
+            String temp = allServers.get(0)[0].replace("DATA", "");
             allServers.get(0)[0] = temp;
         }
-        allServers.remove(allServers.size()-1);
+        allServers.remove(allServers.size() - 1);
         allServers.remove(0);
     }
 
     public void openServer(String[] input) {
         serverList.clear();
-        String resc = "RESC Avail "+input[4]+" "+input[5]+" "+input[6]+ "\n";
+        String resc = "RESC Avail " + input[4] + " " + input[5] + " " + input[6] + "\n";
         String[] buffer = {" "};
         serverList.add(buffer);
 
-        try{
+        try {
             out.write(resc.getBytes());
-        }
-        catch(IOException i)
-        {
+        } catch (IOException i) {
             System.out.println(i);
         }
 
-        while(!readReady()) {};
+        while (!readReady()) {
+        }
+        ;
         read();
 
-        while(!serverList.get(0)[0].equals(".")) {
+        while (!serverList.get(0)[0].equals(".")) {
             ok();
-            while(!readReady()) {};
-            serverList.add(0,read().split(" "));
-            String temp = serverList.get(0)[0].replace("DATA","");
+            while (!readReady()) {
+            }
+            ;
+            serverList.add(0, read().split(" "));
+            String temp = serverList.get(0)[0].replace("DATA", "");
             serverList.get(0)[0] = temp;
             //System.out.println(serverList.get(0)[0]);
         }
-        serverList.remove(serverList.size()-1);
+        serverList.remove(serverList.size() - 1);
         serverList.remove(0);
         assignServer();
     }
@@ -248,11 +235,9 @@ public class Client
     // asking the server for another job
     public void ready() {
         String ready = "REDY\n";
-        try{
+        try {
             out.write(ready.getBytes());
-        }
-        catch(IOException i)
-        {
+        } catch (IOException i) {
             System.out.println(i);
         }
     }
@@ -262,13 +247,11 @@ public class Client
         String helo = "HELO\n";
         String auth = "AUTH xxx\n";
 
-        try{
+        try {
             out.write(helo.getBytes());
             TimeUnit.MILLISECONDS.sleep(5);
             out.write(auth.getBytes());
-        }
-        catch(IOException i)
-        {
+        } catch (IOException i) {
             System.out.println(i);
         } catch (InterruptedException e) {
             // TODO Auto-generated catch block
@@ -277,24 +260,25 @@ public class Client
     }
 
     int modCount = 0;
-    public void fastFit(){
-        String lastServerType = ogServers.get(ogServers.size()-1)[0];
+
+    public void fastFit() {
+        String lastServerType = ogServers.get(ogServers.size() - 1)[0];
         int lastServerCount = 0;
-        for(int i = ogServers.size()-1; i > 0; i--) {
+        for (int i = ogServers.size() - 1; i > 0; i--) {
             if (ogServers.get(i)[0].equals(lastServerType)) {
                 lastServerCount++;
             }
         }
 
-        for(int j = ogServers.size()-lastServerCount; j < ogServers.size(); j++){
-            if(Integer.parseInt(ogServers.get(j)[1]) == modCount){
+        for (int j = ogServers.size() - lastServerCount; j < ogServers.size(); j++) {
+            if (Integer.parseInt(ogServers.get(j)[1]) == modCount) {
                 System.out.println(modCount);
                 modCount++;
                 BFFServer = ogServers.get(j);
                 return;
             }
 
-            if(modCount == lastServerCount){
+            if (modCount == lastServerCount) {
                 modCount = 0;
             }
         }
@@ -303,11 +287,12 @@ public class Client
     }
 
     int startPoint = 0;
-    public void fastTraverseBestFit(ArrayList<String[]> serverList){
-        String[] min = ogServers.get(ogServers.size()-1);
+
+    public void fastTraverseBestFit(ArrayList<String[]> serverList) {
+        String[] min = ogServers.get(ogServers.size() - 1);
         String[] job = inputArrayString;
-        if(startPoint == 0){
-            for(int i = 0; i < serverList.size(); i++) {
+        if (startPoint == 0) {
+            for (int i = 0; i < serverList.size(); i++) {
                 String[] ser = serverList.get(i);
                 if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
                     min = ser;
@@ -315,22 +300,22 @@ public class Client
                 }
             }
         } else {
-            if(startPoint + 1 != serverList.size()){
-                if(Integer.parseInt(job[4]) >= Integer.parseInt(serverList.get(startPoint)[4])){
-                    for(int i = startPoint; i < serverList.size(); i++){
-                        String[] ser = serverList.get(i+1);
-                        if(Integer.parseInt(ser[2]) != 3 && Integer.parseInt(ser[2]) != 4){
-                            if(Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
+            if (startPoint + 1 != serverList.size()) {
+                if (Integer.parseInt(job[4]) >= Integer.parseInt(serverList.get(startPoint)[4])) {
+                    for (int i = startPoint; i < serverList.size(); i++) {
+                        String[] ser = serverList.get(i + 1);
+                        if (Integer.parseInt(ser[2]) != 3 && Integer.parseInt(ser[2]) != 4) {
+                            if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
                                 min = ser;
                                 startPoint = i;
                             }
                         }
                     }
                 } else {
-                    if(Integer.parseInt(job[4]) <= Integer.parseInt(serverList.get(startPoint)[4])){
-                        for(int i = startPoint; i < serverList.size(); i++){
-                            String[] ser = serverList.get(i+1);
-                            if(Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])){
+                    if (Integer.parseInt(job[4]) <= Integer.parseInt(serverList.get(startPoint)[4])) {
+                        for (int i = startPoint; i < serverList.size(); i++) {
+                            String[] ser = serverList.get(i + 1);
+                            if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
                                 min = ser;
                                 startPoint = i;
                             }
@@ -343,23 +328,34 @@ public class Client
     }
 
 
-    public void cheapFit(ArrayList<String[]> serverList) {
-        if(serverList.equals(allServers)){
-            String[] min = serverList.get(serverList.size()-1);
-            for(int i = 0; i < serverList.size(); i++){
+    public void cheapFit(ArrayList<String[]> serverList, boolean rescAvailFailed) {
+        String[] min = ogServers.get(ogServers.size() - 1);
+        if (rescAvailFailed == false) {
+            for (int i = 0; i <= serverList.size() - 1; i++) {
+                String[] ser = serverList.get(i);
+                if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
+                    if (Integer.parseInt(ser[5]) <= Integer.parseInt(min[5])) {
+                        if (Integer.parseInt(ser[6]) <= Integer.parseInt(min[6])) {
+                            min = ser;
+                        }
+                    }
+                }
+            }
+        } else {
+            for (int i = 0; i < serverList.size() - 1; i++) {
                 String[] ser = serverList.get(i);
                 String[] job = inputArrayString;
-                for(int j = 0; j < ogServers.size(); j++){
-                    String[] og = ogServers.get(i);
-                    if(ser[0].equals(og[0]) && Integer.parseInt(ser[1]) == Integer.parseInt(og[1])){
-                        if(Integer.parseInt(ser[2]) == 0 || Integer.parseInt(ser[2]) == 2){
-                            if((Integer.parseInt(job[4]) <= Integer.parseInt(og[4]))) {
-                                if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
-                                    min = ser;
-                                    if ((Integer.parseInt(ser[2]) == 0 || Integer.parseInt(ser[2]) == 2)) {
+                for (int j = 0; j < ogServers.size(); j++) {
+                    String[] og = ogServers.get(j);
+                    if (ser[0].equals(og[0]) && Integer.parseInt(ser[1]) == Integer.parseInt(og[1])) {
+                        if ((Integer.parseInt(job[4]) <= Integer.parseInt(og[4]))) {
+                            if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
+                                if (Integer.parseInt(ser[5]) <= Integer.parseInt(min[5])) {
+                                    if (Integer.parseInt(ser[6]) <= Integer.parseInt(min[6])){
                                         min = ser;
-                                        BFFServer = min;
-                                        break;
+                                        if ((Integer.parseInt(ser[2]) == 0 || Integer.parseInt(ser[2]) == 2)) {
+                                            min = ser;
+                                        }
                                     }
                                 }
                             }
@@ -367,16 +363,8 @@ public class Client
                     }
                 }
             }
-        } else {
-            String[] min = ogServers.get(ogServers.size() - 1);
-            for (int i = 0; i <= serverList.size() - 1; i++) {
-                String[] ser = serverList.get(i);
-                if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
-                    min = ser;
-                }
-            }
-            BFFServer = min;
         }
+        BFFServer = min;
     }
 
     public ArrayList<String[]> sortList(ArrayList<String[]> listToSort) {
@@ -410,11 +398,16 @@ public class Client
     }
 
     public void assignServer() {
+        boolean rescAvailFailed = false;
         ArrayList<String[]> passedList = serverList;
+
         if(serverList.size() == 0){
+            rescAvailFailed = true;
             servers();
             passedList = allServers;
         }
+
+        passedList = sortList(passedList);
 
         if(sortType.equals("ftbf")){
             servers();
@@ -422,10 +415,8 @@ public class Client
             fastTraverseBestFit(passedList);
         }
 
-        passedList = sortList(passedList);
-
         if (sortType.equals("cf")) {
-            cheapFit(passedList);
+            cheapFit(passedList, rescAvailFailed);
         }
     }
 
