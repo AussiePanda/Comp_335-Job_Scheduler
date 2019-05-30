@@ -351,7 +351,7 @@ public class Client
                 String[] job = inputArrayString;
                 for(int j = 0; j < ogServers.size(); j++){
                     String[] og = ogServers.get(i);
-                    if(Integer.parseInt(ser[0]) == (Integer.parseInt(og[0])) && Integer.parseInt(ser[1]) == Integer.parseInt(og[1])){
+                    if(ser[0].equals(og[0]) && Integer.parseInt(ser[1]) == Integer.parseInt(og[1])){
                         if(Integer.parseInt(ser[2]) == 0 || Integer.parseInt(ser[2]) == 2){
                             if((Integer.parseInt(job[4]) <= Integer.parseInt(og[4]))) {
                                 if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4])) {
