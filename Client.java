@@ -77,7 +77,12 @@ public class Client {
 
         //running the first job with the server that we just found
         inputArrayString = firstJob.split(" ");
-        openServer(inputArrayString);
+
+        if(sortType.equals("fastfit")){
+            fastFit();
+        } else {
+            openServer(inputArrayString);
+        }
 
         String first = "SCHD " + inputArrayString[2] + " " + BFFServer[0] + " " + BFFServer[1] + "\n";
         try {
@@ -329,7 +334,7 @@ public class Client {
 
 
     public void cheapFit(ArrayList<String[]> serverList, boolean rescAvailFailed) {
-        String[] min = ogServers.get(ogServers.size() - 1);
+        String[] min = serverList.get(serverList.size() - 1);
         if (rescAvailFailed == false) {
             for (int i = 0; i <= serverList.size() - 1; i++) {
                 String[] ser = serverList.get(i);
