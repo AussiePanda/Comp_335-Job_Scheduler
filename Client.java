@@ -77,11 +77,6 @@ public class Client
         ogServers = sortList(ogServers);
 
 
-
-//        for(int i = 0; i < ogServers.size(); i++){
-//            System.out.println(ogServers.get(i)[0] + " " + ogServers.get(i)[1] + " " + ogServers.get(i)[4]);
-//        }
-
         //running the first job with the server that we just found
         inputArrayString = firstJob.split(" ");
         openServer(inputArrayString);
@@ -294,33 +289,6 @@ public class Client
         BFFServer = serverList.get(serverList.size()-1);
     }
 
-    int modCount = 0;
-    public void fastFit(){
-        String[] lastServer = ogServers.get(ogServers.size()-1);
-        String lastServerType = lastServer[0];
-        int lastServerCount = 0;
-        for(int i = ogServers.size()-1; i > 0; i--) {
-            if (ogServers.get(i)[0].equals(lastServerType)) {
-                lastServerCount++;
-            }
-        }
-
-
-        for(int j = ogServers.size()-lastServerCount; j < ogServers.size(); j++){
-            if(Integer.parseInt(ogServers.get(j)[1]) == modCount){
-                System.out.println(modCount);
-                modCount++;
-                BFFServer = ogServers.get(j);
-                return;
-            }
-
-            if(modCount == lastServerCount){
-                modCount = 0;
-            }
-        }
-        return;
-        //BFFServer = ogServers.get(ogServers.size()-1);
-    }
 
     public void  averageFastFit (){
         String[] firstServer = ogServers.get(0);
@@ -387,35 +355,6 @@ public class Client
         }
         BFFServer = min;
     }
-
-//public void bestFit(ArrayList<String[]> sList) {
-//        String[] min = ogServers.get(0);
-//        for(int i =0;i<=sList.size()-1;i++) {
-//            String[] ser = sList.get(i);
-//            String[] job = inputArrayString;
-//            //System.out.println(ser[0] + " " + ser[1] + " " + ser[2] + " " +ser[3] + " " + ser[4] + " " + ser[5] +" " + job[2]);
-//            for(int j = 0; j < ogServers.size(); j++){
-//                String[] og = ogServers.get(j);
-//                //System.out.println("Min info: " + min[0] + " " + min[1] + " " + min[4] + " Job Cores: " + job[4] + " OG Cores: " + og[4]);
-//                //System.out.println(serverList.get(i)[0]);
-//                if(!ser[0].equals(".") || !ser[0].equals(" ")) {
-//                    if(og[0].equals(ser[0]) && og[1].equals(ser[1])) {
-//                        if(Integer.parseInt(ser[2]) != 3 && Integer.parseInt(ser[2]) != 4){
-//                            if(Integer.parseInt(job[4]) >= Integer.parseInt(og[4])){
-//                                if (Integer.parseInt(ser[4]) <= Integer.parseInt(min[4]) && Integer.parseInt(ser[4]) != 0){
-//                                    min = ser;
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//                BFFServer = min;
-//            }
-//        }
-//    }
-
-
-
 
     public void worstFit(ArrayList<String[]> serverList) {
         String[] max = serverList.get(0);
