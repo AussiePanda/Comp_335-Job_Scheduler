@@ -269,7 +269,7 @@ public class Client {
     public void fastFit() {
         String lastServerType = ogServers.get(ogServers.size() - 1)[0];
         int lastServerCount = 0;
-        for (int i = ogServers.size() - 1; i > 0; i--) {
+        for (int i = ogServers.size() - 1; i >= 0; i--) {
             if (ogServers.get(i)[0].equals(lastServerType)) {
                 lastServerCount++;
             }
