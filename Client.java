@@ -339,7 +339,7 @@ public class Client
    }*/
 
 
-   public void retard() {
+   public void countingFit() {
        int hold =ogServers.size()-1;
        
        String[] min = ogServers.get(ogServers.size()-1);
@@ -415,7 +415,7 @@ public class Client
 		 */
 
        if (sortType.equals("cf")) {
-           retard();
+           countingFit();
        }
    }
 
@@ -472,18 +472,18 @@ public class Client
    }
    public static void main(String args[])
    {
-		/*
-		 * if(args.length==2) { if(args[0].equals("-a")) { if(args[1].equals("cf") ||
-		 * args[1].equals("fastfit") || args[1].equals("ftbf")) {
-		 * System.out.println(args[0]);
-		 */
-                  // Client client = new Client("127.0.0.1", 8096,args[1]);
-	   Client client = new Client("127.0.0.1", 8096,"cf");
-/*               }
+		
+		  if(args.length==2) { if(args[0].equals("-a")) { if(args[1].equals("cf") ||
+		  args[1].equals("fastfit") || args[1].equals("ftbf")) {
+		  System.out.println(args[0]);
+		 
+                   Client client = new Client("127.0.0.1", 8096,args[1]);
+	  // Client client = new Client("127.0.0.1", 8096,"cf");
+               }
            }
        }else {
            System.out.println("Please use -a (cf, ftbf or fastfit)");
            return;
-       }*/
+       }
    }
 }
