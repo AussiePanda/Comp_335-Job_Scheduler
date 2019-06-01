@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- system information generated for COMP335@MQ, S1-27May, 2019 -->
+<system>
+	<servers>
+		<server type="mq" limit="100" bootupTime="10" rate="0.01" coreCount="8" memory="8000" disk="64000" />
+	</servers>
+</system>

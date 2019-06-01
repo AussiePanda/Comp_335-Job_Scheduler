@@ -1,0 +1,113 @@
+# ds-sim server S1-27May, 2019 (COMP335@MQ)
+# Server-side simulator started with './ds-server -c config_simple1.xml'
+# Waiting for connection to port 8096 of IP address 127.0.0.1
+# Welcome  comp335!
+# The system information can be read from 'system.xml'
+t:        143 job     0 on # 0 of server large RUNNING
+t:        290 job     1 on # 0 of server large RUNNING
+t:        297 job     1 on # 0 of server large COMPLETED
+t:        336 job     2 on # 0 of server large RUNNING
+t:        345 job     2 on # 0 of server large COMPLETED
+t:        443 job     3 on # 0 of server large RUNNING
+t:        451 job     3 on # 0 of server large COMPLETED
+t:        788 job     4 on # 1 of server large RUNNING
+t:        867 job     5 on # 0 of server large RUNNING
+t:        869 job     5 on # 0 of server large COMPLETED
+t:        870 job     6 on # 0 of server large RUNNING
+t:        871 job     6 on # 0 of server large COMPLETED
+t:        954 job     7 on # 0 of server large RUNNING
+t:        987 job     0 on # 0 of server large COMPLETED
+t:       1042 job     8 on # 0 of server large RUNNING
+t:       1072 job    10 on # 0 of server large RUNNING
+t:       1079 job    10 on # 0 of server large COMPLETED
+t:       1102 job    11 on # 0 of server large RUNNING
+t:       1124 job     9 on # 2 of server large RUNNING
+t:       1128 job    12 on # 0 of server large RUNNING
+t:       1164 job    14 on # 0 of server large RUNNING
+t:       1223 job    15 on # 0 of server large RUNNING
+t:       1224 job    13 on # 3 of server large RUNNING
+t:       1252 job    16 on # 3 of server large RUNNING
+t:       1270 job    11 on # 0 of server large COMPLETED
+t:       1319 job    17 on # 4 of server large RUNNING
+t:       1336 job    18 on # 4 of server large RUNNING
+t:       1402 job     8 on # 0 of server large COMPLETED
+t:       1436 job    18 on # 4 of server large COMPLETED
+t:       1463 job    14 on # 0 of server large COMPLETED
+t:       1498 job    15 on # 0 of server large COMPLETED
+t:       1505 job    16 on # 3 of server large COMPLETED
+t:       1545 job    20 on # 0 of server large RUNNING
+t:       1548 job    20 on # 0 of server large COMPLETED
+t:       1557 job    19 on # 5 of server large RUNNING
+t:       1560 job    17 on # 4 of server large COMPLETED
+t:       1678 job    21 on # 4 of server large RUNNING
+t:       1687 job    21 on # 4 of server large COMPLETED
+t:       1815 job    22 on # 4 of server large RUNNING
+t:       1909 job    23 on # 4 of server large RUNNING
+t:       1910 job    23 on # 4 of server large COMPLETED
+t:       1968 job    12 on # 0 of server large COMPLETED
+t:       1975 job    24 on # 0 of server large RUNNING
+t:       2084 job    22 on # 4 of server large COMPLETED
+t:       2205 job     7 on # 0 of server large COMPLETED
+t:       2394 job    25 on # 4 of server large RUNNING
+t:       2423 job    26 on # 0 of server large RUNNING
+t:       2466 job    25 on # 4 of server large COMPLETED
+t:       2516 job    26 on # 0 of server large COMPLETED
+t:       2626 job    24 on # 0 of server large COMPLETED
+t:       2917 job    27 on # 0 of server large RUNNING
+t:       2920 job    27 on # 0 of server large COMPLETED
+t:       3290 job    28 on # 0 of server large RUNNING
+t:       3297 job    28 on # 0 of server large COMPLETED
+t:       3696 job    29 on # 0 of server large RUNNING
+t:       4232 job    30 on # 4 of server large RUNNING
+t:       4543 job    31 on # 4 of server large RUNNING
+t:       4548 job    31 on # 4 of server large COMPLETED
+t:       4672 job    29 on # 0 of server large COMPLETED
+t:       5282 job    32 on # 0 of server large RUNNING
+t:       5285 job    32 on # 0 of server large COMPLETED
+t:       5365 job     4 on # 1 of server large COMPLETED
+t:       5472 job    33 on # 0 of server large RUNNING
+t:       6126 job    34 on # 1 of server large RUNNING
+t:       6136 job    35 on # 1 of server large RUNNING
+t:       6144 job    35 on # 1 of server large COMPLETED
+t:       6196 job    36 on # 1 of server large RUNNING
+t:       6215 job    37 on # 4 of server large RUNNING
+t:       6223 job    37 on # 4 of server large COMPLETED
+t:       6263 job    34 on # 1 of server large COMPLETED
+t:       6327 job    36 on # 1 of server large COMPLETED
+t:       6682 job    38 on # 1 of server large RUNNING
+t:       6906 job    39 on # 4 of server large RUNNING
+t:       6932 job    38 on # 1 of server large COMPLETED
+t:       7094 job    39 on # 4 of server large COMPLETED
+t:       7111 job    40 on # 1 of server large RUNNING
+t:       7118 job    33 on # 0 of server large COMPLETED
+t:       7318 job    40 on # 1 of server large COMPLETED
+t:       7319 job    41 on # 0 of server large RUNNING
+t:       7381 job    41 on # 0 of server large COMPLETED
+t:       7417 job    42 on # 0 of server large RUNNING
+t:       7531 job    43 on # 1 of server large RUNNING
+t:       7571 job    44 on # 0 of server large RUNNING
+t:       7572 job    44 on # 0 of server large COMPLETED
+t:       7582 job    45 on # 0 of server large RUNNING
+t:       7588 job    45 on # 0 of server large COMPLETED
+t:       7638 job    42 on # 0 of server large COMPLETED
+t:       7658 job    46 on # 0 of server large RUNNING
+t:       7664 job    46 on # 0 of server large COMPLETED
+t:       7712 job    47 on # 0 of server large RUNNING
+t:       7720 job    47 on # 0 of server large COMPLETED
+t:       7720 job    48 on # 0 of server large RUNNING
+t:       7727 job    48 on # 0 of server large COMPLETED
+t:       7778 job    49 on # 0 of server large RUNNING
+t:       7792 job    49 on # 0 of server large COMPLETED
+t:      37736 job    13 on # 3 of server large COMPLETED
+t:      76116 job    19 on # 5 of server large COMPLETED
+t:      81681 job     9 on # 2 of server large COMPLETED
+t:      97641 job    43 on # 1 of server large COMPLETED
+t:      97952 job    30 on # 4 of server large COMPLETED
+# ---------------------------------------------------------------------------
+# 0 tiny servers used with a utilisation of 0.00 at the cost of $0.00
+# 0 small servers used with a utilisation of 0.00 at the cost of $0.00
+# 0 medium servers used with a utilisation of 0.00 at the cost of $0.00
+# 6 large servers used with a utilisation of 91.52 at the cost of $85.04
+# =============================== [ Overall ] ===============================
+# total #servers used: 6, avg utilisation: 91.52 and total cost: $85.04
+# avg waiting time: 7, avg exec time: 7793 and avg turnaround time: 7801

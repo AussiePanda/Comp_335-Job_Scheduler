@@ -1,0 +1,31 @@
+# ds-sim server S1-27May, 2019 (COMP335@MQ)
+# Server-side simulator started with './ds-server -n -c ds-config-s3-1.xml'
+# Waiting for connection to port 8096 of IP address 127.0.0.1
+# Welcome  xxx!
+# The system information can be read from 'system.xml'
+t:        143 job     0 on # 0 of server medium RUNNING
+t:        350 job     1 on # 1 of server medium RUNNING
+t:       1249 job     1 on # 1 of server medium COMPLETED
+t:       1249 job     2 on # 1 of server medium RUNNING
+t:       2194 job     2 on # 1 of server medium COMPLETED
+t:       2194 job     4 on # 1 of server medium RUNNING
+t:       6771 job     4 on # 1 of server medium COMPLETED
+t:       6771 job     5 on # 1 of server medium RUNNING
+t:       6771 job     7 on # 1 of server medium RUNNING
+t:       7375 job     5 on # 1 of server medium COMPLETED
+t:       7375 job     8 on # 1 of server medium RUNNING
+t:       7735 job     8 on # 1 of server medium COMPLETED
+t:      19466 job     0 on # 0 of server medium COMPLETED
+t:      19466 job     3 on # 0 of server medium RUNNING
+t:      19708 job     3 on # 0 of server medium COMPLETED
+t:      19708 job     6 on # 0 of server medium RUNNING
+t:      20106 job     6 on # 0 of server medium COMPLETED
+t:      20106 job     9 on # 0 of server medium RUNNING
+t:      78615 job     7 on # 1 of server medium COMPLETED
+t:     100663 job     9 on # 0 of server medium COMPLETED
+# ---------------------------------------------------------------------------
+# 0 small servers used with a utilisation of 0.00 at the cost of $0.00
+# 2 medium servers used with a utilisation of 100.00 at the cost of $19.87
+# =============================== [ Overall ] ===============================
+# total #servers used: 2, avg utilisation: 100.00 and total cost: $19.87
+# avg waiting time: 7157, avg exec time: 17974 and avg turnaround time: 25132

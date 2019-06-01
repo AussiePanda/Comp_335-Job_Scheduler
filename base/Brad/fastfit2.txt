@@ -1,0 +1,484 @@
+# ds-sim server S1-27May, 2019 (COMP335@MQ)
+# Server-side simulator started with './ds-server -n -c config_simple2.xml'
+# Waiting for connection to port 8096 of IP address 127.0.0.1
+# Welcome  xxx!
+# The system information can be read from 'system.xml'
+t:        407 job     0 on # 0 of server xlarge RUNNING
+t:        478 job     0 on # 0 of server xlarge COMPLETED
+t:        945 job     1 on # 1 of server xlarge RUNNING
+t:       1263 job     1 on # 1 of server xlarge COMPLETED
+t:       1420 job     2 on # 2 of server xlarge RUNNING
+t:       1774 job     3 on # 3 of server xlarge RUNNING
+t:       1807 job     3 on # 3 of server xlarge COMPLETED
+t:       2047 job     4 on # 4 of server xlarge RUNNING
+t:       2096 job     2 on # 2 of server xlarge COMPLETED
+t:       2196 job     4 on # 4 of server xlarge COMPLETED
+t:       2320 job     5 on # 5 of server xlarge RUNNING
+t:       2451 job     6 on # 6 of server xlarge RUNNING
+t:       2468 job     6 on # 6 of server xlarge COMPLETED
+t:       2480 job     7 on # 7 of server xlarge RUNNING
+t:       2503 job     8 on # 8 of server xlarge RUNNING
+t:       2523 job     9 on # 9 of server xlarge RUNNING
+t:       2548 job    10 on #10 of server xlarge RUNNING
+t:       2604 job    11 on #11 of server xlarge RUNNING
+t:       2630 job    12 on #12 of server xlarge RUNNING
+t:       2661 job    10 on #10 of server xlarge COMPLETED
+t:       2673 job    11 on #11 of server xlarge COMPLETED
+t:       2680 job    13 on #13 of server xlarge RUNNING
+t:       2723 job    14 on #14 of server xlarge RUNNING
+t:       2765 job    15 on #15 of server xlarge RUNNING
+t:       2816 job     8 on # 8 of server xlarge COMPLETED
+t:       2823 job    13 on #13 of server xlarge COMPLETED
+t:       2824 job    16 on #16 of server xlarge RUNNING
+t:       2826 job    16 on #16 of server xlarge COMPLETED
+t:       2867 job     9 on # 9 of server xlarge COMPLETED
+t:       2875 job    17 on #17 of server xlarge RUNNING
+t:       2904 job    18 on #18 of server xlarge RUNNING
+t:       2904 job    21 on # 0 of server xlarge RUNNING
+t:       2907 job    18 on #18 of server xlarge COMPLETED
+t:       2916 job    19 on #19 of server xlarge RUNNING
+t:       2916 job    20 on #19 of server xlarge RUNNING
+t:       2943 job    15 on #15 of server xlarge COMPLETED
+t:       2944 job    22 on # 1 of server xlarge RUNNING
+t:       2944 job    23 on # 2 of server xlarge RUNNING
+t:       2948 job    24 on # 3 of server xlarge RUNNING
+t:       2987 job     7 on # 7 of server xlarge COMPLETED
+t:       2990 job    19 on #19 of server xlarge COMPLETED
+t:       2990 job    25 on # 4 of server xlarge RUNNING
+t:       3004 job    25 on # 4 of server xlarge COMPLETED
+t:       3018 job    27 on # 6 of server xlarge RUNNING
+t:       3051 job    28 on # 7 of server xlarge RUNNING
+t:       3065 job    28 on # 7 of server xlarge COMPLETED
+t:       3085 job    23 on # 2 of server xlarge COMPLETED
+t:       3086 job     5 on # 5 of server xlarge COMPLETED
+t:       3086 job    26 on # 5 of server xlarge RUNNING
+t:       3107 job    29 on # 8 of server xlarge RUNNING
+t:       3128 job    30 on # 9 of server xlarge RUNNING
+t:       3137 job    31 on #10 of server xlarge RUNNING
+t:       3191 job    32 on #11 of server xlarge RUNNING
+t:       3192 job    29 on # 8 of server xlarge COMPLETED
+t:       3228 job    33 on #12 of server xlarge RUNNING
+t:       3247 job    34 on #13 of server xlarge RUNNING
+t:       3255 job    35 on #14 of server xlarge RUNNING
+t:       3307 job    36 on #15 of server xlarge RUNNING
+t:       3318 job    37 on #16 of server xlarge RUNNING
+t:       3329 job    38 on #17 of server xlarge RUNNING
+t:       3354 job    39 on #18 of server xlarge RUNNING
+t:       3355 job    27 on # 6 of server xlarge COMPLETED
+t:       3375 job    40 on #19 of server xlarge RUNNING
+t:       3398 job    35 on #14 of server xlarge COMPLETED
+t:       3437 job    12 on #12 of server xlarge COMPLETED
+t:       3442 job    41 on #19 of server xlarge RUNNING
+t:       3452 job    37 on #16 of server xlarge COMPLETED
+t:       3480 job    36 on #15 of server xlarge COMPLETED
+t:       3510 job    42 on # 0 of server xlarge RUNNING
+t:       3511 job    22 on # 1 of server xlarge COMPLETED
+t:       3520 job    21 on # 0 of server xlarge COMPLETED
+t:       3532 job    41 on #19 of server xlarge COMPLETED
+t:       3540 job    40 on #19 of server xlarge COMPLETED
+t:       3549 job    31 on #10 of server xlarge COMPLETED
+t:       3566 job    17 on #17 of server xlarge COMPLETED
+t:       3682 job    43 on # 1 of server xlarge RUNNING
+t:       3741 job    32 on #11 of server xlarge COMPLETED
+t:       3780 job    24 on # 3 of server xlarge COMPLETED
+t:       3920 job    44 on # 2 of server xlarge RUNNING
+t:       3999 job    45 on # 3 of server xlarge RUNNING
+t:       4011 job    33 on #12 of server xlarge COMPLETED
+t:       4016 job    38 on #17 of server xlarge COMPLETED
+t:       4076 job    46 on # 4 of server xlarge RUNNING
+t:       4180 job    42 on # 0 of server xlarge COMPLETED
+t:       4186 job    46 on # 4 of server xlarge COMPLETED
+t:       4267 job    48 on # 6 of server xlarge RUNNING
+t:       4384 job    49 on # 7 of server xlarge RUNNING
+t:       4401 job    50 on # 8 of server xlarge RUNNING
+t:       4404 job    43 on # 1 of server xlarge COMPLETED
+t:       4409 job    48 on # 6 of server xlarge COMPLETED
+t:       4429 job    49 on # 7 of server xlarge COMPLETED
+t:       4762 job    51 on # 9 of server xlarge RUNNING
+t:       4953 job    50 on # 8 of server xlarge COMPLETED
+t:       5042 job    52 on #10 of server xlarge RUNNING
+t:       5365 job    51 on # 9 of server xlarge COMPLETED
+t:       5550 job    53 on #11 of server xlarge RUNNING
+t:       5639 job    53 on #11 of server xlarge COMPLETED
+t:       5748 job    52 on #10 of server xlarge COMPLETED
+t:       5807 job    54 on #12 of server xlarge RUNNING
+t:       6084 job    55 on #13 of server xlarge RUNNING
+t:       6414 job    54 on #12 of server xlarge COMPLETED
+t:       6784 job    56 on #14 of server xlarge RUNNING
+t:       6915 job    56 on #14 of server xlarge COMPLETED
+t:       7299 job    57 on #15 of server xlarge RUNNING
+t:       7319 job    57 on #15 of server xlarge COMPLETED
+t:       8018 job    58 on #16 of server xlarge RUNNING
+t:       8175 job    58 on #16 of server xlarge COMPLETED
+t:       8885 job    59 on #17 of server xlarge RUNNING
+t:       9150 job    60 on #18 of server xlarge RUNNING
+t:       9337 job    59 on #17 of server xlarge COMPLETED
+t:       9710 job    62 on #19 of server xlarge RUNNING
+t:       9952 job    60 on #18 of server xlarge COMPLETED
+t:      10184 job    63 on # 0 of server xlarge RUNNING
+t:      10226 job    62 on #19 of server xlarge COMPLETED
+t:      10317 job    63 on # 0 of server xlarge COMPLETED
+t:      11226 job    64 on # 1 of server xlarge RUNNING
+t:      11241 job    65 on # 2 of server xlarge RUNNING
+t:      11397 job    64 on # 1 of server xlarge COMPLETED
+t:      11533 job    66 on # 3 of server xlarge RUNNING
+t:      11963 job    65 on # 2 of server xlarge COMPLETED
+t:      12098 job    67 on # 4 of server xlarge RUNNING
+t:      12165 job    67 on # 4 of server xlarge COMPLETED
+t:      12470 job    69 on # 6 of server xlarge RUNNING
+t:      13339 job    70 on # 7 of server xlarge RUNNING
+t:      13667 job    70 on # 7 of server xlarge COMPLETED
+t:      13943 job    71 on # 8 of server xlarge RUNNING
+t:      13961 job    71 on # 8 of server xlarge COMPLETED
+t:      15542 job    72 on # 9 of server xlarge RUNNING
+t:      15685 job    72 on # 9 of server xlarge COMPLETED
+t:      17155 job    20 on #19 of server xlarge COMPLETED
+t:      17155 job    61 on #19 of server xlarge RUNNING
+t:      17266 job    73 on #10 of server xlarge RUNNING
+t:      17397 job    73 on #10 of server xlarge COMPLETED
+t:      18723 job    74 on #11 of server xlarge RUNNING
+t:      18762 job    74 on #11 of server xlarge COMPLETED
+t:      18893 job    66 on # 3 of server xlarge COMPLETED
+t:      18935 job    75 on #12 of server xlarge RUNNING
+t:      19085 job    75 on #12 of server xlarge COMPLETED
+t:      20552 job    76 on #13 of server xlarge RUNNING
+t:      20727 job    76 on #13 of server xlarge COMPLETED
+t:      21942 job    77 on #14 of server xlarge RUNNING
+t:      22024 job    77 on #14 of server xlarge COMPLETED
+t:      23278 job    78 on #15 of server xlarge RUNNING
+t:      23300 job    78 on #15 of server xlarge COMPLETED
+t:      24635 job    79 on #16 of server xlarge RUNNING
+t:      25995 job    61 on #19 of server xlarge COMPLETED
+t:      26090 job    80 on #17 of server xlarge RUNNING
+t:      26626 job    81 on #18 of server xlarge RUNNING
+t:      26630 job    82 on #19 of server xlarge RUNNING
+t:      26648 job    81 on #18 of server xlarge COMPLETED
+t:      26670 job    82 on #19 of server xlarge COMPLETED
+t:      27273 job    83 on #19 of server xlarge RUNNING
+t:      27881 job    83 on #19 of server xlarge COMPLETED
+t:      29053 job    84 on # 0 of server xlarge RUNNING
+t:      29058 job    84 on # 0 of server xlarge COMPLETED
+t:      29800 job    85 on # 1 of server xlarge RUNNING
+t:      30506 job    85 on # 1 of server xlarge COMPLETED
+t:      30641 job    86 on # 2 of server xlarge RUNNING
+t:      30684 job    87 on # 3 of server xlarge RUNNING
+t:      30765 job    14 on #14 of server xlarge COMPLETED
+t:      31143 job    86 on # 2 of server xlarge COMPLETED
+t:      31336 job    87 on # 3 of server xlarge COMPLETED
+t:      32110 job    88 on # 4 of server xlarge RUNNING
+t:      32416 job    88 on # 4 of server xlarge COMPLETED
+t:      32759 job    69 on # 6 of server xlarge COMPLETED
+t:      35466 job    90 on # 6 of server xlarge RUNNING
+t:      35508 job    90 on # 6 of server xlarge COMPLETED
+t:      36172 job    39 on #18 of server xlarge COMPLETED
+t:      37362 job    91 on # 7 of server xlarge RUNNING
+t:      37410 job    91 on # 7 of server xlarge COMPLETED
+t:      37560 job    92 on # 8 of server xlarge RUNNING
+t:      37567 job    92 on # 8 of server xlarge COMPLETED
+t:      38593 job    93 on # 9 of server xlarge RUNNING
+t:      38625 job    94 on #10 of server xlarge RUNNING
+t:      38719 job    94 on #10 of server xlarge COMPLETED
+t:      39138 job    93 on # 9 of server xlarge COMPLETED
+t:      39989 job    30 on # 9 of server xlarge COMPLETED
+t:      40090 job    95 on #11 of server xlarge RUNNING
+t:      40799 job    95 on #11 of server xlarge COMPLETED
+t:      41007 job    96 on #12 of server xlarge RUNNING
+t:      42251 job    97 on #13 of server xlarge RUNNING
+t:      42500 job    45 on # 3 of server xlarge COMPLETED
+t:      42680 job    97 on #13 of server xlarge COMPLETED
+t:      43244 job    98 on #14 of server xlarge RUNNING
+t:      43302 job    99 on #15 of server xlarge RUNNING
+t:      43305 job    98 on #14 of server xlarge COMPLETED
+t:      43427 job    99 on #15 of server xlarge COMPLETED
+t:      44077 job   100 on #16 of server xlarge RUNNING
+t:      44114 job   100 on #16 of server xlarge COMPLETED
+t:      44836 job   101 on #17 of server xlarge RUNNING
+t:      44988 job    34 on #13 of server xlarge COMPLETED
+t:      45013 job   101 on #17 of server xlarge COMPLETED
+t:      46116 job   102 on #18 of server xlarge RUNNING
+t:      46880 job   102 on #18 of server xlarge COMPLETED
+t:      46943 job   103 on #19 of server xlarge RUNNING
+t:      47447 job   104 on #19 of server xlarge RUNNING
+t:      47465 job   104 on #19 of server xlarge COMPLETED
+t:      47524 job   103 on #19 of server xlarge COMPLETED
+t:      48094 job   105 on # 0 of server xlarge RUNNING
+t:      48113 job   105 on # 0 of server xlarge COMPLETED
+t:      48975 job   106 on # 1 of server xlarge RUNNING
+t:      49318 job   107 on # 2 of server xlarge RUNNING
+t:      49448 job   107 on # 2 of server xlarge COMPLETED
+t:      49508 job   106 on # 1 of server xlarge COMPLETED
+t:      49523 job   108 on # 3 of server xlarge RUNNING
+t:      49577 job   108 on # 3 of server xlarge COMPLETED
+t:      50287 job   109 on # 4 of server xlarge RUNNING
+t:      50612 job   109 on # 4 of server xlarge COMPLETED
+t:      50822 job   111 on # 6 of server xlarge RUNNING
+t:      50925 job   111 on # 6 of server xlarge COMPLETED
+t:      51055 job   112 on # 7 of server xlarge RUNNING
+t:      51688 job   113 on # 8 of server xlarge RUNNING
+t:      51758 job   112 on # 7 of server xlarge COMPLETED
+t:      52085 job   114 on # 9 of server xlarge RUNNING
+t:      52528 job   115 on #10 of server xlarge RUNNING
+t:      52667 job   115 on #10 of server xlarge COMPLETED
+t:      52946 job   116 on #11 of server xlarge RUNNING
+t:      53108 job   117 on #12 of server xlarge RUNNING
+t:      53240 job   117 on #12 of server xlarge COMPLETED
+t:      53302 job   116 on #11 of server xlarge COMPLETED
+t:      53423 job   118 on #13 of server xlarge RUNNING
+t:      53475 job   119 on #14 of server xlarge RUNNING
+t:      53604 job   119 on #14 of server xlarge COMPLETED
+t:      53668 job   120 on #15 of server xlarge RUNNING
+t:      53730 job   120 on #15 of server xlarge COMPLETED
+t:      53821 job   121 on #16 of server xlarge RUNNING
+t:      53892 job   118 on #13 of server xlarge COMPLETED
+t:      53896 job   122 on #17 of server xlarge RUNNING
+t:      53932 job   121 on #16 of server xlarge COMPLETED
+t:      53953 job   123 on #18 of server xlarge RUNNING
+t:      53975 job   124 on #19 of server xlarge RUNNING
+t:      54010 job   125 on #19 of server xlarge RUNNING
+t:      54012 job   126 on # 0 of server xlarge RUNNING
+t:      54029 job   127 on # 1 of server xlarge RUNNING
+t:      54039 job   128 on # 2 of server xlarge RUNNING
+t:      54042 job   128 on # 2 of server xlarge COMPLETED
+t:      54050 job   122 on #17 of server xlarge COMPLETED
+t:      54070 job   123 on #18 of server xlarge COMPLETED
+t:      54098 job   126 on # 0 of server xlarge COMPLETED
+t:      54100 job   129 on # 3 of server xlarge RUNNING
+t:      54114 job   130 on # 4 of server xlarge RUNNING
+t:      54132 job   125 on #19 of server xlarge COMPLETED
+t:      54161 job   127 on # 1 of server xlarge COMPLETED
+t:      54173 job   129 on # 3 of server xlarge COMPLETED
+t:      54209 job   132 on # 6 of server xlarge RUNNING
+t:      54216 job   133 on # 7 of server xlarge RUNNING
+t:      54230 job   134 on # 8 of server xlarge RUNNING
+t:      54254 job   135 on # 9 of server xlarge RUNNING
+t:      54271 job   134 on # 8 of server xlarge COMPLETED
+t:      54338 job   133 on # 7 of server xlarge COMPLETED
+t:      54355 job   136 on #10 of server xlarge RUNNING
+t:      54432 job   124 on #19 of server xlarge COMPLETED
+t:      54435 job   137 on #11 of server xlarge RUNNING
+t:      54439 job   138 on #12 of server xlarge RUNNING
+t:      54489 job   138 on #12 of server xlarge COMPLETED
+t:      54524 job   139 on #13 of server xlarge RUNNING
+t:      54532 job   137 on #11 of server xlarge COMPLETED
+t:      54671 job   140 on #14 of server xlarge RUNNING
+t:      54751 job   141 on #15 of server xlarge RUNNING
+t:      54755 job   142 on #16 of server xlarge RUNNING
+t:      54781 job   135 on # 9 of server xlarge COMPLETED
+t:      54883 job   143 on #17 of server xlarge RUNNING
+t:      54902 job   142 on #16 of server xlarge COMPLETED
+t:      54909 job   144 on #18 of server xlarge RUNNING
+t:      54924 job   144 on #18 of server xlarge COMPLETED
+t:      54935 job   143 on #17 of server xlarge COMPLETED
+t:      55024 job   139 on #13 of server xlarge COMPLETED
+t:      55086 job   136 on #10 of server xlarge COMPLETED
+t:      55174 job   145 on #19 of server xlarge RUNNING
+t:      55196 job   145 on #19 of server xlarge COMPLETED
+t:      55233 job   140 on #14 of server xlarge COMPLETED
+t:      55354 job   146 on #19 of server xlarge RUNNING
+t:      55438 job   146 on #19 of server xlarge COMPLETED
+t:      55588 job   147 on # 0 of server xlarge RUNNING
+t:      55597 job   141 on #15 of server xlarge COMPLETED
+t:      55823 job   148 on # 1 of server xlarge RUNNING
+t:      55920 job   148 on # 1 of server xlarge COMPLETED
+t:      56010 job   149 on # 2 of server xlarge RUNNING
+t:      56148 job   130 on # 4 of server xlarge COMPLETED
+t:      56176 job   150 on # 3 of server xlarge RUNNING
+t:      56249 job   151 on # 4 of server xlarge RUNNING
+t:      56303 job   153 on # 6 of server xlarge RUNNING
+t:      56317 job   150 on # 3 of server xlarge COMPLETED
+t:      56345 job   147 on # 0 of server xlarge COMPLETED
+t:      56404 job   154 on # 7 of server xlarge RUNNING
+t:      56417 job   155 on # 8 of server xlarge RUNNING
+t:      56424 job   149 on # 2 of server xlarge COMPLETED
+t:      56427 job   156 on # 9 of server xlarge RUNNING
+t:      56464 job   153 on # 6 of server xlarge COMPLETED
+t:      56585 job   155 on # 8 of server xlarge COMPLETED
+t:      56597 job   157 on #10 of server xlarge RUNNING
+t:      56650 job   157 on #10 of server xlarge COMPLETED
+t:      56786 job   158 on #11 of server xlarge RUNNING
+t:      56818 job   151 on # 4 of server xlarge COMPLETED
+t:      56846 job   154 on # 7 of server xlarge COMPLETED
+t:      56893 job   159 on #12 of server xlarge RUNNING
+t:      56924 job   159 on #12 of server xlarge COMPLETED
+t:      57161 job   158 on #11 of server xlarge COMPLETED
+t:      57167 job   160 on #13 of server xlarge RUNNING
+t:      57273 job   160 on #13 of server xlarge COMPLETED
+t:      57275 job   161 on #14 of server xlarge RUNNING
+t:      57276 job   161 on #14 of server xlarge COMPLETED
+t:      57405 job   162 on #15 of server xlarge RUNNING
+t:      57443 job   163 on #16 of server xlarge RUNNING
+t:      57541 job   164 on #17 of server xlarge RUNNING
+t:      57641 job   164 on #17 of server xlarge COMPLETED
+t:      57708 job   165 on #18 of server xlarge RUNNING
+t:      57736 job   165 on #18 of server xlarge COMPLETED
+t:      57753 job   166 on #19 of server xlarge RUNNING
+t:      57772 job   166 on #19 of server xlarge COMPLETED
+t:      57969 job   167 on #19 of server xlarge RUNNING
+t:      57989 job   167 on #19 of server xlarge COMPLETED
+t:      58201 job   168 on # 0 of server xlarge RUNNING
+t:      58299 job   162 on #15 of server xlarge COMPLETED
+t:      58318 job   163 on #16 of server xlarge COMPLETED
+t:      58594 job   169 on # 1 of server xlarge RUNNING
+t:      58756 job   169 on # 1 of server xlarge COMPLETED
+t:      58858 job   170 on # 2 of server xlarge RUNNING
+t:      58893 job   170 on # 2 of server xlarge COMPLETED
+t:      58970 job   168 on # 0 of server xlarge COMPLETED
+t:      59150 job   171 on # 3 of server xlarge RUNNING
+t:      59186 job   171 on # 3 of server xlarge COMPLETED
+t:      59627 job   172 on # 4 of server xlarge RUNNING
+t:      59845 job   174 on # 6 of server xlarge RUNNING
+t:      59872 job   174 on # 6 of server xlarge COMPLETED
+t:      59947 job   175 on # 7 of server xlarge RUNNING
+t:      59954 job   175 on # 7 of server xlarge COMPLETED
+t:      60285 job   176 on # 8 of server xlarge RUNNING
+t:      60393 job   176 on # 8 of server xlarge COMPLETED
+t:      60586 job   177 on # 9 of server xlarge RUNNING
+t:      61177 job   178 on #10 of server xlarge RUNNING
+t:      61391 job   177 on # 9 of server xlarge COMPLETED
+t:      61893 job   179 on #11 of server xlarge RUNNING
+t:      61927 job   178 on #10 of server xlarge COMPLETED
+t:      62405 job   180 on #12 of server xlarge RUNNING
+t:      62727 job    80 on #17 of server xlarge COMPLETED
+t:      62791 job   179 on #11 of server xlarge COMPLETED
+t:      63105 job   180 on #12 of server xlarge COMPLETED
+t:      63259 job   181 on #13 of server xlarge RUNNING
+t:      63279 job   181 on #13 of server xlarge COMPLETED
+t:      63595 job   182 on #14 of server xlarge RUNNING
+t:      64606 job   183 on #15 of server xlarge RUNNING
+t:      64714 job   183 on #15 of server xlarge COMPLETED
+t:      64807 job   184 on #16 of server xlarge RUNNING
+t:      65705 job   184 on #16 of server xlarge COMPLETED
+t:      65797 job   185 on #17 of server xlarge RUNNING
+t:      65894 job   186 on #18 of server xlarge RUNNING
+t:      65976 job   187 on #19 of server xlarge RUNNING
+t:      65999 job   187 on #19 of server xlarge COMPLETED
+t:      66531 job   188 on #19 of server xlarge RUNNING
+t:      66883 job   188 on #19 of server xlarge COMPLETED
+t:      66937 job   114 on # 9 of server xlarge COMPLETED
+t:      67316 job   189 on # 0 of server xlarge RUNNING
+t:      67394 job   190 on # 1 of server xlarge RUNNING
+t:      67424 job   190 on # 1 of server xlarge COMPLETED
+t:      67993 job   189 on # 0 of server xlarge COMPLETED
+t:      68232 job   191 on # 2 of server xlarge RUNNING
+t:      68328 job   191 on # 2 of server xlarge COMPLETED
+t:      69567 job   192 on # 3 of server xlarge RUNNING
+t:      71785 job   195 on # 6 of server xlarge RUNNING
+t:      72166 job   196 on # 7 of server xlarge RUNNING
+t:      72494 job   195 on # 6 of server xlarge COMPLETED
+t:      72982 job   196 on # 7 of server xlarge COMPLETED
+t:      73876 job   197 on # 8 of server xlarge RUNNING
+t:      73925 job   197 on # 8 of server xlarge COMPLETED
+t:      74735 job   198 on # 9 of server xlarge RUNNING
+t:      74744 job   198 on # 9 of server xlarge COMPLETED
+t:      75508 job   199 on #10 of server xlarge RUNNING
+t:      75528 job   199 on #10 of server xlarge COMPLETED
+t:      75542 job   200 on #11 of server xlarge RUNNING
+t:      75719 job   200 on #11 of server xlarge COMPLETED
+t:      76893 job   201 on #12 of server xlarge RUNNING
+t:      76919 job   202 on #13 of server xlarge RUNNING
+t:      77017 job   201 on #12 of server xlarge COMPLETED
+t:      77260 job   203 on #14 of server xlarge RUNNING
+t:      77378 job   203 on #14 of server xlarge COMPLETED
+t:      79438 job   202 on #13 of server xlarge COMPLETED
+t:      79516 job   204 on #15 of server xlarge RUNNING
+t:      79623 job   204 on #15 of server xlarge COMPLETED
+t:      79796 job   205 on #16 of server xlarge RUNNING
+t:      80561 job   205 on #16 of server xlarge COMPLETED
+t:      81599 job    96 on #12 of server xlarge COMPLETED
+t:      81866 job   206 on #17 of server xlarge RUNNING
+t:      81956 job   206 on #17 of server xlarge COMPLETED
+t:      84757 job   132 on # 6 of server xlarge COMPLETED
+t:      85789 job   208 on #19 of server xlarge RUNNING
+t:      86025 job   209 on #19 of server xlarge RUNNING
+t:      86399 job   209 on #19 of server xlarge COMPLETED
+t:      86444 job   208 on #19 of server xlarge COMPLETED
+t:      87347 job   210 on # 0 of server xlarge RUNNING
+t:      88883 job   211 on # 1 of server xlarge RUNNING
+t:      88898 job   211 on # 1 of server xlarge COMPLETED
+t:      89487 job   212 on # 2 of server xlarge RUNNING
+t:      90256 job   113 on # 8 of server xlarge COMPLETED
+t:      90809 job   213 on # 3 of server xlarge RUNNING
+t:      90957 job   213 on # 3 of server xlarge COMPLETED
+t:      94688 job   172 on # 4 of server xlarge COMPLETED
+t:      94688 job   193 on # 4 of server xlarge RUNNING
+t:      94688 job   214 on # 4 of server xlarge RUNNING
+t:      94739 job   214 on # 4 of server xlarge COMPLETED
+t:      94788 job   193 on # 4 of server xlarge COMPLETED
+t:      96852 job   216 on # 6 of server xlarge RUNNING
+t:      97728 job   216 on # 6 of server xlarge COMPLETED
+t:      98300 job   217 on # 7 of server xlarge RUNNING
+t:      99135 job   217 on # 7 of server xlarge COMPLETED
+t:     100526 job   218 on # 8 of server xlarge RUNNING
+t:     102453 job   210 on # 0 of server xlarge COMPLETED
+t:     103240 job   182 on #14 of server xlarge COMPLETED
+t:     103395 job   219 on # 9 of server xlarge RUNNING
+t:     103555 job   219 on # 9 of server xlarge COMPLETED
+t:     104794 job   220 on #10 of server xlarge RUNNING
+t:     105142 job   220 on #10 of server xlarge COMPLETED
+t:     107289 job   221 on #11 of server xlarge RUNNING
+t:     107310 job   221 on #11 of server xlarge COMPLETED
+t:     107767 job   218 on # 8 of server xlarge COMPLETED
+t:     108633 job   186 on #18 of server xlarge COMPLETED
+t:     108633 job   207 on #18 of server xlarge RUNNING
+t:     109827 job   222 on #12 of server xlarge RUNNING
+t:     109908 job   222 on #12 of server xlarge COMPLETED
+t:     111378 job   223 on #13 of server xlarge RUNNING
+t:     111506 job   223 on #13 of server xlarge COMPLETED
+t:     114026 job   224 on #14 of server xlarge RUNNING
+t:     117197 job   225 on #15 of server xlarge RUNNING
+t:     117713 job   225 on #15 of server xlarge COMPLETED
+t:     118565 job   226 on #16 of server xlarge RUNNING
+t:     118623 job   226 on #16 of server xlarge COMPLETED
+t:     120868 job   227 on #17 of server xlarge RUNNING
+t:     121496 job   227 on #17 of server xlarge COMPLETED
+t:     124537 job   229 on #19 of server xlarge RUNNING
+t:     124652 job   230 on #19 of server xlarge RUNNING
+t:     124662 job   230 on #19 of server xlarge COMPLETED
+t:     124972 job   229 on #19 of server xlarge COMPLETED
+t:     127533 job   231 on # 0 of server xlarge RUNNING
+t:     127594 job   231 on # 0 of server xlarge COMPLETED
+t:     128341 job   232 on # 1 of server xlarge RUNNING
+t:     128343 job   232 on # 1 of server xlarge COMPLETED
+t:     129044 job   233 on # 2 of server xlarge RUNNING
+t:     129084 job   233 on # 2 of server xlarge COMPLETED
+t:     129478 job   212 on # 2 of server xlarge COMPLETED
+t:     131369 job   234 on # 3 of server xlarge RUNNING
+t:     131541 job   234 on # 3 of server xlarge COMPLETED
+t:     148576 job   224 on #14 of server xlarge COMPLETED
+t:     351210 job   192 on # 3 of server xlarge COMPLETED
+t:     441557 job    44 on # 2 of server xlarge COMPLETED
+t:     724747 job    55 on #13 of server xlarge COMPLETED
+t:     756184 job    79 on #16 of server xlarge COMPLETED
+t:     918104 job    26 on # 5 of server xlarge COMPLETED
+t:     918104 job    47 on # 5 of server xlarge RUNNING
+t:     918104 job    68 on # 5 of server xlarge RUNNING
+t:     918104 job    89 on # 5 of server xlarge RUNNING
+t:     918104 job   110 on # 5 of server xlarge RUNNING
+t:     918104 job   131 on # 5 of server xlarge RUNNING
+t:     918104 job   152 on # 5 of server xlarge RUNNING
+t:     918104 job   173 on # 5 of server xlarge RUNNING
+t:     918104 job   194 on # 5 of server xlarge RUNNING
+t:     918104 job   215 on # 5 of server xlarge RUNNING
+t:     918109 job   215 on # 5 of server xlarge COMPLETED
+t:     918129 job    47 on # 5 of server xlarge COMPLETED
+t:     918215 job    89 on # 5 of server xlarge COMPLETED
+t:     918231 job   194 on # 5 of server xlarge COMPLETED
+t:     918637 job    68 on # 5 of server xlarge COMPLETED
+t:     918744 job   131 on # 5 of server xlarge COMPLETED
+t:     918916 job   152 on # 5 of server xlarge COMPLETED
+t:     940827 job   173 on # 5 of server xlarge COMPLETED
+t:    1047977 job   156 on # 9 of server xlarge COMPLETED
+t:    1052729 job   185 on #17 of server xlarge COMPLETED
+t:    1085849 job   207 on #18 of server xlarge COMPLETED
+t:    1085849 job   228 on #18 of server xlarge RUNNING
+t:    1086469 job   228 on #18 of server xlarge COMPLETED
+t:    1314998 job   110 on # 5 of server xlarge COMPLETED
+# ---------------------------------------------------------------------------
+# 0 tiny servers used with a utilisation of 0.00 at the cost of $0.00
+# 0 small servers used with a utilisation of 0.00 at the cost of $0.00
+# 0 medium servers used with a utilisation of 0.00 at the cost of $0.00
+# 0 large servers used with a utilisation of 0.00 at the cost of $0.00
+# 20 xlarge servers used with a utilisation of 44.57 at the cost of $2793.71
+# =============================== [ Overall ] ===============================
+# total #servers used: 20, avg utilisation: 44.57 and total cost: $2793.71
+# avg waiting time: 37652, avg exec time: 30323 and avg turnaround time: 67976

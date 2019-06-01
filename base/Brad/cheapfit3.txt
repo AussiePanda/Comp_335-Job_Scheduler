@@ -1,0 +1,214 @@
+# ds-sim server S1-27May, 2019 (COMP335@MQ)
+# Server-side simulator started with './ds-server -n -c config_simple3.xml'
+# Waiting for connection to port 8096 of IP address 127.0.0.1
+# Welcome  xxx!
+# The system information can be read from 'system.xml'
+t:        339 job     0 on #19 of server small RUNNING
+t:        374 job     0 on #19 of server small COMPLETED
+t:        714 job     1 on #19 of server tiny RUNNING
+t:        858 job     1 on #19 of server tiny COMPLETED
+t:        963 job     2 on #19 of server xlarge RUNNING
+t:        976 job     3 on #19 of server small RUNNING
+t:       1086 job     3 on #19 of server small COMPLETED
+t:       1266 job     4 on #19 of server xlarge RUNNING
+t:       1545 job     5 on #19 of server tiny RUNNING
+t:       1693 job     6 on #18 of server xlarge RUNNING
+t:       1761 job     7 on #17 of server xlarge RUNNING
+t:       1796 job     8 on #19 of server small RUNNING
+t:       1866 job     9 on #18 of server tiny RUNNING
+t:       1870 job    10 on #18 of server small RUNNING
+t:       1895 job    11 on #16 of server xlarge RUNNING
+t:       1900 job    12 on #19 of server large RUNNING
+t:       1971 job    13 on #15 of server xlarge RUNNING
+t:       2144 job    14 on #17 of server small RUNNING
+t:       2321 job    15 on #17 of server tiny RUNNING
+t:       2339 job    15 on #17 of server tiny COMPLETED
+t:       2394 job    16 on #17 of server tiny RUNNING
+t:       2508 job    10 on #18 of server small COMPLETED
+t:       2581 job    17 on #15 of server xlarge RUNNING
+t:       2727 job    14 on #17 of server small COMPLETED
+t:       2875 job    18 on #18 of server large RUNNING
+t:       3006 job    19 on #18 of server small RUNNING
+t:       3124 job    20 on #16 of server tiny RUNNING
+t:       3191 job    16 on #17 of server tiny COMPLETED
+t:       3254 job    21 on #17 of server tiny RUNNING
+t:       3670 job    22 on #15 of server tiny RUNNING
+t:       3845 job    19 on #18 of server small COMPLETED
+t:       3913 job    23 on #14 of server tiny RUNNING
+t:       4225 job    24 on #14 of server xlarge RUNNING
+t:       4315 job    23 on #14 of server tiny COMPLETED
+t:       4595 job    25 on #14 of server tiny RUNNING
+t:       5039 job    26 on #18 of server small RUNNING
+t:       5863 job    27 on #13 of server tiny RUNNING
+t:       5928 job    27 on #13 of server tiny COMPLETED
+t:       6121 job    28 on #13 of server tiny RUNNING
+t:       6149 job    28 on #13 of server tiny COMPLETED
+t:       7050 job    29 on #13 of server tiny RUNNING
+t:       7068 job    29 on #13 of server tiny COMPLETED
+t:       7070 job    30 on #13 of server tiny RUNNING
+t:       7775 job    20 on #16 of server tiny COMPLETED
+t:       8062 job    31 on #16 of server tiny RUNNING
+t:       8090 job    31 on #16 of server tiny COMPLETED
+t:       8583 job    32 on #17 of server large RUNNING
+t:       9310 job    33 on #16 of server tiny RUNNING
+t:       9459 job    33 on #16 of server tiny COMPLETED
+t:      10278 job    26 on #18 of server small COMPLETED
+t:      10587 job    34 on #13 of server xlarge RUNNING
+t:      10882 job    35 on #14 of server xlarge RUNNING
+t:      11189 job    36 on #16 of server large RUNNING
+t:      11397 job    37 on #16 of server tiny RUNNING
+t:      11422 job    37 on #16 of server tiny COMPLETED
+t:      12275 job    38 on #16 of server tiny RUNNING
+t:      13808 job    39 on #12 of server tiny RUNNING
+t:      13942 job    39 on #12 of server tiny COMPLETED
+t:      14013 job    40 on #15 of server large RUNNING
+t:      15017 job    41 on #12 of server tiny RUNNING
+t:      15144 job    41 on #12 of server tiny COMPLETED
+t:      15216 job    42 on #18 of server small RUNNING
+t:      16110 job    42 on #18 of server small COMPLETED
+t:      16497 job     2 on #19 of server xlarge COMPLETED
+t:      16940 job    43 on #12 of server xlarge RUNNING
+t:      18457 job    38 on #16 of server tiny COMPLETED
+t:      18798 job    44 on #14 of server large RUNNING
+t:      19782 job    45 on #16 of server tiny RUNNING
+t:      19791 job    45 on #16 of server tiny COMPLETED
+t:      21543 job    46 on #19 of server medium RUNNING
+t:      22125 job    47 on #16 of server tiny RUNNING
+t:      23421 job    36 on #16 of server large COMPLETED
+t:      23593 job    48 on #12 of server tiny RUNNING
+t:      24321 job    50 on #16 of server large RUNNING
+t:      24373 job    47 on #16 of server tiny COMPLETED
+t:      24374 job    49 on #11 of server xlarge RUNNING
+t:      25554 job    51 on #10 of server xlarge RUNNING
+t:      27387 job    11 on #16 of server xlarge COMPLETED
+t:      27805 job    52 on #16 of server tiny RUNNING
+t:      28951 job    25 on #14 of server tiny COMPLETED
+t:      29271 job    53 on #15 of server large RUNNING
+t:      31771 job    54 on #14 of server tiny RUNNING
+t:      31773 job    54 on #14 of server tiny COMPLETED
+t:      31941 job    48 on #12 of server tiny COMPLETED
+t:      33607 job    55 on #19 of server xlarge RUNNING
+t:      36318 job    56 on #13 of server large RUNNING
+t:      38312 job    57 on #14 of server tiny RUNNING
+t:      38815 job    57 on #14 of server tiny COMPLETED
+t:      39090 job    17 on #15 of server xlarge COMPLETED
+t:      40851 job    58 on #14 of server tiny RUNNING
+t:      40853 job    58 on #14 of server tiny COMPLETED
+t:      40948 job    59 on #18 of server small RUNNING
+t:      41117 job    59 on #18 of server small COMPLETED
+t:      42417 job    60 on #14 of server tiny RUNNING
+t:      42462 job    60 on #14 of server tiny COMPLETED
+t:      44250 job    61 on #15 of server xlarge RUNNING
+t:      45711 job    62 on #14 of server tiny RUNNING
+t:      46352 job    62 on #14 of server tiny COMPLETED
+t:      46442 job    63 on #14 of server tiny RUNNING
+t:      47939 job    64 on #12 of server tiny RUNNING
+t:      48317 job    64 on #12 of server tiny COMPLETED
+t:      50848 job    65 on #16 of server xlarge RUNNING
+t:      53185 job    44 on #14 of server large COMPLETED
+t:      54084 job    66 on #14 of server large RUNNING
+t:      55034 job    67 on #12 of server tiny RUNNING
+t:      57666 job    68 on #11 of server tiny RUNNING
+t:      58097 job    69 on #17 of server xlarge RUNNING
+t:      59381 job    70 on #12 of server large RUNNING
+t:      59836 job    71 on #18 of server small RUNNING
+t:      60011 job    71 on #18 of server small COMPLETED
+t:      61984 job    72 on #10 of server tiny RUNNING
+t:      62009 job    72 on #10 of server tiny COMPLETED
+t:      63055 job    73 on #10 of server tiny RUNNING
+t:      65370 job    56 on #13 of server large COMPLETED
+t:      66144 job    74 on # 9 of server tiny RUNNING
+t:      66228 job    74 on # 9 of server tiny COMPLETED
+t:      66932 job    75 on # 9 of server xlarge RUNNING
+t:      67595 job    76 on # 8 of server xlarge RUNNING
+t:      68872 job    77 on # 9 of server tiny RUNNING
+t:      70886 job    78 on # 8 of server tiny RUNNING
+t:      71025 job    78 on # 8 of server tiny COMPLETED
+t:      73491 job    79 on # 8 of server tiny RUNNING
+t:      76716 job    77 on # 9 of server tiny COMPLETED
+t:      77586 job    80 on # 9 of server tiny RUNNING
+t:      77704 job    80 on # 9 of server tiny COMPLETED
+t:      78678 job    13 on #15 of server xlarge COMPLETED
+t:      79083 job    81 on #15 of server xlarge RUNNING
+t:      80295 job    82 on # 7 of server xlarge RUNNING
+t:      81788 job    81 on #15 of server xlarge COMPLETED
+t:      81884 job    83 on # 6 of server xlarge RUNNING
+t:      83487 job    84 on # 9 of server tiny RUNNING
+t:      84418 job    85 on # 7 of server tiny RUNNING
+t:      88479 job    86 on # 6 of server tiny RUNNING
+t:      88594 job    86 on # 6 of server tiny COMPLETED
+t:      90042 job    87 on #13 of server large RUNNING
+t:      92475 job    76 on # 8 of server xlarge COMPLETED
+t:      92565 job    88 on # 6 of server tiny RUNNING
+t:      92584 job    88 on # 6 of server tiny COMPLETED
+t:      96772 job    89 on # 6 of server tiny RUNNING
+t:      96779 job    89 on # 6 of server tiny COMPLETED
+t:      99981 job    90 on #18 of server small RUNNING
+t:     100023 job    90 on #18 of server small COMPLETED
+t:     101004 job    55 on #19 of server xlarge COMPLETED
+t:     102180 job    73 on #10 of server tiny COMPLETED
+t:     103399 job    91 on #19 of server xlarge RUNNING
+t:     103844 job    92 on #10 of server tiny RUNNING
+t:     103856 job    92 on #10 of server tiny COMPLETED
+t:     108747 job    93 on #10 of server tiny RUNNING
+t:     111015 job    18 on #18 of server large COMPLETED
+t:     111468 job    94 on #18 of server small RUNNING
+t:     112103 job    94 on #18 of server small COMPLETED
+t:     113000 job    95 on #18 of server small RUNNING
+t:     113360 job    95 on #18 of server small COMPLETED
+t:     117698 job    96 on #18 of server large RUNNING
+t:     120369 job    97 on #15 of server xlarge RUNNING
+t:     121040 job     9 on #18 of server tiny COMPLETED
+t:     124563 job    98 on #18 of server medium RUNNING
+t:     124642 job    99 on # 8 of server xlarge RUNNING
+t:     137102 job    96 on #18 of server large COMPLETED
+t:     141202 job    99 on # 8 of server xlarge COMPLETED
+t:     141704 job    93 on #10 of server tiny COMPLETED
+t:     151861 job    70 on #12 of server large COMPLETED
+t:     167034 job    98 on #18 of server medium COMPLETED
+t:     168468 job    32 on #17 of server large COMPLETED
+t:     223892 job    50 on #16 of server large COMPLETED
+t:     254410 job    51 on #10 of server xlarge COMPLETED
+t:     334625 job    87 on #13 of server large COMPLETED
+t:     352431 job    12 on #19 of server large COMPLETED
+t:     357167 job    82 on # 7 of server xlarge COMPLETED
+t:     363186 job    34 on #13 of server xlarge COMPLETED
+t:     394090 job    49 on #11 of server xlarge COMPLETED
+t:     396266 job    61 on #15 of server xlarge COMPLETED
+t:     415279 job     4 on #19 of server xlarge COMPLETED
+t:     424480 job    65 on #16 of server xlarge COMPLETED
+t:     451758 job    52 on #16 of server tiny COMPLETED
+t:     462094 job    30 on #13 of server tiny COMPLETED
+t:     471825 job    83 on # 6 of server xlarge COMPLETED
+t:     503503 job    69 on #17 of server xlarge COMPLETED
+t:     532590 job    66 on #14 of server large COMPLETED
+t:     566832 job     8 on #19 of server small COMPLETED
+t:     579340 job    91 on #19 of server xlarge COMPLETED
+t:     591415 job    79 on # 8 of server tiny COMPLETED
+t:     633663 job    85 on # 7 of server tiny COMPLETED
+t:     701646 job     5 on #19 of server tiny COMPLETED
+t:     702894 job     6 on #18 of server xlarge COMPLETED
+t:     719864 job    68 on #11 of server tiny COMPLETED
+t:     746382 job    40 on #15 of server large COMPLETED
+t:     751647 job    21 on #17 of server tiny COMPLETED
+t:     804971 job    53 on #15 of server large COMPLETED
+t:     824414 job    24 on #14 of server xlarge COMPLETED
+t:     846117 job     7 on #17 of server xlarge COMPLETED
+t:     853427 job    84 on # 9 of server tiny COMPLETED
+t:     875235 job    97 on #15 of server xlarge COMPLETED
+t:     897128 job    46 on #19 of server medium COMPLETED
+t:     925728 job    67 on #12 of server tiny COMPLETED
+t:     927332 job    63 on #14 of server tiny COMPLETED
+t:     970361 job    35 on #14 of server xlarge COMPLETED
+t:     978344 job    22 on #15 of server tiny COMPLETED
+t:     978428 job    43 on #12 of server xlarge COMPLETED
+t:    1055264 job    75 on # 9 of server xlarge COMPLETED
+# ---------------------------------------------------------------------------
+# 14 tiny servers used with a utilisation of 91.59 at the cost of $216.72
+# 3 small servers used with a utilisation of 69.28 at the cost of $31.93
+# 2 medium servers used with a utilisation of 100.00 at the cost of $102.01
+# 8 large servers used with a utilisation of 98.27 at the cost of $559.94
+# 14 xlarge servers used with a utilisation of 96.27 at the cost of $3509.89
+# =============================== [ Overall ] ===============================
+# total #servers used: 41, avg utilisation: 93.27 and total cost: $4420.48
+# avg waiting time: 24, avg exec time: 225062 and avg turnaround time: 225087
