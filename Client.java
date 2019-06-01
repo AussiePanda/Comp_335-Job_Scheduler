@@ -291,7 +291,7 @@ public class Client {
         //BFFServer = ogServers.get(ogServers.size()-1);
     }
 
-    int startPoint = 0;
+   /* int startPoint = 0;
 
     public void fastTraverseBestFit(ArrayList<String[]> serverList) {
         String[] min = ogServers.get(ogServers.size() - 1);
@@ -330,7 +330,7 @@ public class Client {
             }
         }
         BFFServer = min;
-    }
+    } */
 
 
     public void cheapFit(ArrayList<String[]> serverList, boolean rescAvailFailed) {
@@ -485,7 +485,7 @@ public class Client {
                 }
             }
         }else {
-            System.out.println("Please use -a (cf, ftbf or fastfit)");
+            System.out.println("Please use -a (cf, or fastfit)");
             return;
         }
     }
