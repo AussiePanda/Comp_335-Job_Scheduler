@@ -414,11 +414,11 @@ public class Client {
 
         passedList = sortList(passedList);
 
-        if(sortType.equals("ftbf")){
+        /* if(sortType.equals("ftbf")){
             servers();
             passedList = allServers;
             fastTraverseBestFit(passedList);
-        }
+        } */
 
         if (sortType.equals("cf")) {
             cheapFit(passedList, rescAvailFailed);
